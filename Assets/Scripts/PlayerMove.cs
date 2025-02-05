@@ -27,7 +27,10 @@ public class PlayerMove : MonoBehaviour
         // Move forward
         if(moveDirection == new Vector2(0, 1))
         {
-            playerAnimator.Play("WalkForward");
+            if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("WalkForward"))
+            {
+                playerAnimator.Play("WalkForward");
+            }
 
             playerCC.Move(transform.forward * Time.deltaTime * movementSpeed);
         }
@@ -35,7 +38,10 @@ public class PlayerMove : MonoBehaviour
         // Move backwards
         if(moveDirection == new Vector2(0, -1))
         {
-            playerAnimator.Play("WalkBackward");
+            if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("WalkBackward"))
+            {
+                playerAnimator.Play("WalkBackward");
+            }
 
             playerCC.Move(-transform.forward * Time.deltaTime * movementSpeed);
         }
@@ -43,7 +49,10 @@ public class PlayerMove : MonoBehaviour
         // Move right forward
         if(moveDirection.x > 0)
         {
-            playerAnimator.Play("WalkForwardRight");
+            if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("WalkForwardRight"))
+            {
+                playerAnimator.Play("WalkForwardRight");
+            }
 
             playerCC.Move(transform.right * Time.deltaTime * movementSpeed);
         }
@@ -51,7 +60,11 @@ public class PlayerMove : MonoBehaviour
         // Move left forward
         if(moveDirection.x < 0)
         {
-            playerAnimator.Play("WalkForwardLeft");
+
+            if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("WalkForwardLeft"))
+            {
+                playerAnimator.Play("WalkForwardLeft");
+            }
 
             playerCC.Move(-transform.right * Time.deltaTime * movementSpeed);
         }
@@ -59,7 +72,11 @@ public class PlayerMove : MonoBehaviour
         // Not walking
         if(moveDirection == Vector2.zero)
         {
-            playerAnimator.Play("Idle");
+
+            if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+            {
+                playerAnimator.Play("Idle");
+            }
         }
     }
 
