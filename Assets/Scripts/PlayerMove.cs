@@ -1,64 +1,76 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMove : MonoBehaviour
 {
     public Transform cameraTransform;
     public float movementSpeed = 10f;
+    public float rotationSpeed = 10f;
+    public float gravity = 9.81f;
+    public float jumpHeight = 10f;
 
     private Controls controls;
-    private Rigidbody playerRB;
     private CharacterController playerCC;
     private Animator playerAnimator;
+    private Vector3 moveDirection;
 
     private void OnEnable()
     {
         controls = new Controls();
         controls.Enable();
 
-        playerRB = GetComponent<Rigidbody>();
         playerCC = GetComponent<CharacterController>();
         playerAnimator = GetComponent<Animator>();
+
+        controls.Player.Jump.performed += ctx => Jump();
     }
 
     private void Update()
     {
-        Vector2 moveDirection = controls.Player.Move.ReadValue<Vector2>();
+        Vector2 inputDirection = controls.Player.Move.ReadValue<Vector2>();
 
         // Move forward
-        if(moveDirection == new Vector2(0, 1))
+        if(inputDirection == new Vector2(0, 1))
         {
             if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("WalkForward"))
             {
                 playerAnimator.Play("WalkForward");
             }
 
-            playerCC.Move(transform.forward * Time.deltaTime * movementSpeed);
+            moveDirection = transform.forward;
+            moveDirection.y -= gravity * Time.deltaTime;
+            playerCC.Move(moveDirection * Time.deltaTime * movementSpeed);
         }
 
         // Move backwards
-        if(moveDirection == new Vector2(0, -1))
+        if(inputDirection == new Vector2(0, -1))
         {
             if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("WalkBackward"))
             {
                 playerAnimator.Play("WalkBackward");
             }
 
-            playerCC.Move(-transform.forward * Time.deltaTime * movementSpeed);
+            moveDirection = -transform.forward;
+            moveDirection.y -= gravity * Time.deltaTime;
+            playerCC.Move(moveDirection * Time.deltaTime * movementSpeed);
         }
 
         // Move right forward
-        if(moveDirection.x > 0)
+        if(inputDirection.x > 0)
         {
             if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("WalkForwardRight"))
             {
                 playerAnimator.Play("WalkForwardRight");
             }
 
-            playerCC.Move(transform.right * Time.deltaTime * movementSpeed);
+            moveDirection = transform.right;
+            moveDirection.y -= gravity * Time.deltaTime;
+            playerCC.Move(moveDirection * Time.deltaTime * movementSpeed);
         }
 
         // Move left forward
-        if(moveDirection.x < 0)
+        if(inputDirection.x < 0)
         {
 
             if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("WalkForwardLeft"))
@@ -66,22 +78,37 @@ public class PlayerMove : MonoBehaviour
                 playerAnimator.Play("WalkForwardLeft");
             }
 
-            playerCC.Move(-transform.right * Time.deltaTime * movementSpeed);
+            moveDirection = -transform.right;
+            moveDirection.y -= gravity * Time.deltaTime;
+            playerCC.Move(moveDirection * Time.deltaTime * movementSpeed);
         }
 
         // Not walking
-        if(moveDirection == Vector2.zero)
+        if(inputDirection == Vector2.zero)
         {
-
             if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
             {
                 playerAnimator.Play("Idle");
             }
+
+            moveDirection = Vector3.zero;
+            if()
+            moveDirection.y -= gravity * Time.deltaTime;
+            playerCC.Move(moveDirection * Time.deltaTime * movementSpeed);
         }
     }
 
     private void FixedUpdate()
     {
-        playerRB.MoveRotation(Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0));
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0), Time.deltaTime * rotationSpeed);
+    }
+
+    void Jump()
+    {
+        if (playerCC.isGrounded)
+        {
+            Debug.Log("Called");
+            moveDirection.y = jumpHeight;
+        }
     }
 }
