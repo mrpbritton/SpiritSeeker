@@ -731,6 +731,14 @@ PrefabInstance:
       propertyPath: jumpHeight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4009795671234831512, guid: a3967ff6073f07646a62b98084e4407a, type: 3}
+      propertyPath: slopeCheckRaySize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009795671234831512, guid: a3967ff6073f07646a62b98084e4407a, type: 3}
+      propertyPath: groundCheckRaySize
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4778291693482574146, guid: a3967ff6073f07646a62b98084e4407a, type: 3}
       propertyPath: m_Name
       value: Player

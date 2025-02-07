@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour
     public float rotationSpeed = 10f;
     public float gravity = -9.81f;
     public float jumpHeight = 10f;
+    public float groundCheckRaySize = 0.1f;
 
     private Controls controls;
     private CharacterController playerCC;
@@ -29,6 +30,8 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
+        Debug.DrawRay(transform.position + new Vector3(0, 0.1f, 0), new Vector3(0, -1, 0), Color.red, groundCheckRaySize);
+
         // Read the direction of the movement input
         Vector2 inputDirection = controls.Player.Move.ReadValue<Vector2>();
 
@@ -85,7 +88,7 @@ public class PlayerMove : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position + new Vector3(0, 0.1f, 0), new Vector3(0, -1, 0), out hit, 0.1f))
+        if (Physics.Raycast(transform.position + new Vector3(0, 0.1f, 0), new Vector3(0, -1, 0), out hit, groundCheckRaySize))
         {
             isGrounded = true;
         }
