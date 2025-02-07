@@ -35,52 +35,31 @@ public class PlayerMove : MonoBehaviour
         // Move forward
         if(inputDirection.y == 1)
         {
-            if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("WalkForward"))
-            {
-                playerAnimator.Play("WalkForward");
-            }
-            moveDirection = transform.forward;
+            MoveAndAnimate("WalkForward", transform.forward);
         }
 
         // Move backwards
         if(inputDirection.y == -1)
         {
-            if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("WalkBackward"))
-            {
-                playerAnimator.Play("WalkBackward");
-            }
-            moveDirection = -transform.forward;
+            MoveAndAnimate("WalkBackward", -transform.forward);
         }
 
-        // Move right forward
+        // Move right
         if(inputDirection.x > 0)
         {
-            if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("WalkForwardRight"))
-            {
-                playerAnimator.Play("WalkForwardRight");
-            }
-            moveDirection = transform.right;
+            MoveAndAnimate("StrafeRight", transform.right);
         }
 
         // Move left forward
         if(inputDirection.x < 0)
         {
-
-            if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("WalkForwardLeft"))
-            {
-                playerAnimator.Play("WalkForwardLeft");
-            }
-            moveDirection = -transform.right;
+            MoveAndAnimate("StrafeLeft", -transform.right);
         }
 
         // Not walking
         if(inputDirection == Vector2.zero)
         {
-            if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
-            {
-                playerAnimator.Play("Idle");
-            }
-            moveDirection = Vector3.zero;
+            MoveAndAnimate("Idle", Vector3.zero);
         }
 
         // Apply movement
@@ -117,5 +96,18 @@ public class PlayerMove : MonoBehaviour
 
         // Rotate with the camera
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0), Time.deltaTime * rotationSpeed);
+    }
+
+    public void MoveAndAnimate(string animation, Vector3 direction)
+    {
+        if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName(animation) && isGrounded)
+        {
+            playerAnimator.Play(animation);
+        }
+        else if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("FallingLoop") && !isGrounded)
+        {
+            playerAnimator.Play("FallingLoop");
+        }
+        moveDirection = direction;
     }
 }
