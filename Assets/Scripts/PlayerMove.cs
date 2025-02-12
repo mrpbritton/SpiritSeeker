@@ -18,6 +18,7 @@ public class PlayerMove : MonoBehaviour
     private Vector3 moveDirection;
     private Vector3 downForce;
     private bool isGrounded = true;
+    public bool canDoubleJump = false;
 
     private void OnEnable()
     {
@@ -75,9 +76,13 @@ public class PlayerMove : MonoBehaviour
         }
 
         // Jump
-        if (controls.Player.Jump.triggered && isGrounded)
+        if ((controls.Player.Jump.triggered && isGrounded) || (controls.Player.Jump.triggered && canDoubleJump))
         {
             downForce.y += Mathf.Sqrt(jumpHeight * -2.0f * gravity);
+            if(isGrounded == false && canDoubleJump == true)
+            {
+                canDoubleJump = false;
+            }
         }
 
         downForce.y += gravity * Time.deltaTime;
