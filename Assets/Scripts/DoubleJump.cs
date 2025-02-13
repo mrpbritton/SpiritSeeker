@@ -6,9 +6,11 @@ public class DoubleJump : MonoBehaviour
     {
         if(other.TryGetComponent<PlayerMove>(out PlayerMove player))
         {
-            Debug.Log("Power Up");
-            player.canDoubleJump = true;
-            this.gameObject.SetActive(false);
+            if(player.canDoubleJump == false)
+            {
+                player.canDoubleJump = true;
+                this.gameObject.SetActive(false);
+            }
         }
     }
 }
