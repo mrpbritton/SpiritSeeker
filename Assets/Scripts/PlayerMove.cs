@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -19,6 +20,7 @@ public class PlayerMove : MonoBehaviour
     private Vector3 downForce;
     private bool isGrounded = true;
     public bool canDoubleJump = false;
+    public bool canSprint = false;
 
     private void OnEnable()
     {
@@ -117,5 +119,27 @@ public class PlayerMove : MonoBehaviour
             playerAnimator.Play("FallingLoop");
         }
         moveDirection = direction;
+    }
+
+    public void StartSprint()
+    {
+        StartCoroutine(Sprinting());
+    }
+
+    public IEnumerator Sprinting()
+    {
+        while (canSprint)
+        {
+            if (controls.Player.Sprint.triggered)
+            {
+                movementSpeed = 20f;
+            }
+            else
+            {
+                movementSpeed = 10f;
+            }
+            yield return new WaitForSeconds(10);
+            canSprint = false;
+        }
     }
 }
