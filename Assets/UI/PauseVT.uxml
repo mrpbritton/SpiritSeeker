@@ -1,0 +1,9 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/PauseStyle.uss?fileID=7433441132597879392&amp;guid=23c19f1505252704c9a0375ae080f10d&amp;type=3#PauseStyle" />
+    <engine:VisualElement name="DisplayContainer" style="flex-grow: 1; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); background-color: rgba(0, 0, 0, 0.47);">
+        <engine:Label text="Game Paused" name="Title" class="header" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 2%; margin-right: 0; margin-bottom: 2%; margin-left: 0;" />
+        <engine:Button text="Resume" name="Resume" class="button" />
+        <engine:Button text="Restart" name="Restart" class="button" />
+        <engine:Button text="Main Menu" name="MainMenu" class="button" />
+    </engine:VisualElement>
+</engine:UXML>

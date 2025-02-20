@@ -7,7 +7,7 @@ using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 public class PlayerMove : MonoBehaviour
 {
     public Transform cameraTransform;
-    public float movementSpeed = 10f;
+    public float movementSpeed = 5f;
     public float rotationSpeed = 10f;
     public float gravity = -9.81f;
     public float jumpHeight = 10f;
@@ -38,8 +38,18 @@ public class PlayerMove : MonoBehaviour
         // Read the direction of the movement input
         Vector2 inputDirection = controls.Player.Move.ReadValue<Vector2>();
 
+        if (controls.Player.Sprint.IsPressed() && canSprint)
+        {
+            StartCoroutine(nameof(SprintCD));
+            movementSpeed = 10f;
+        }
+        else
+        {
+            movementSpeed = 5f;
+        }
+
         // Move forward
-        if(inputDirection.y == 1)
+        if (inputDirection.y == 1)
         {
             MoveAndAnimate("WalkForward", transform.forward);
         }
@@ -105,7 +115,10 @@ public class PlayerMove : MonoBehaviour
         }
 
         // Rotate with the camera
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0), Time.deltaTime * rotationSpeed);
+        if(moveDirection != Vector3.zero)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0), Time.deltaTime * rotationSpeed);
+        }
     }
 
     public void MoveAndAnimate(string animation, Vector3 direction)
@@ -121,25 +134,33 @@ public class PlayerMove : MonoBehaviour
         moveDirection = direction;
     }
 
-    public void StartSprint()
-    {
-        StartCoroutine(Sprinting());
-    }
-
-    public IEnumerator Sprinting()
+    public IEnumerator SprintCD()
     {
         while (canSprint)
         {
-            if (controls.Player.Sprint.triggered)
-            {
-                movementSpeed = 20f;
-            }
-            else
-            {
-                movementSpeed = 10f;
-            }
             yield return new WaitForSeconds(10);
             canSprint = false;
+            Debug.Log("Sprint false");
+            StopCoroutine(nameof(SprintCD));
         }
     }
+
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
 }
+
+// Sprint code that worked
+
+/*
+        if (controls.Player.Sprint.IsPressed())
+        {
+            Debug.Log("Sprint");
+            movementSpeed = 10f;
+        }
+        else
+        {
+            movementSpeed = 5f;
+        }
+*/

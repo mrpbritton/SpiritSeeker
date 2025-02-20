@@ -34,7 +34,7 @@ public class MMButtons : MonoBehaviour
 
     private void ExitGame(ClickEvent evt)
     {
-        Debug.Log("success");
+        Debug.Log("Success");
         Application.Quit();
     }
 }

@@ -9,7 +9,6 @@ public class Sprint : MonoBehaviour
             if (player.canSprint == false)
             {
                 player.canSprint = true;
-                player.StartSprint();
                 this.gameObject.SetActive(false);
             }
         }
