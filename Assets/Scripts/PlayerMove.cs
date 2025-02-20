@@ -2,7 +2,6 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -33,7 +32,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        Debug.DrawRay(transform.position + new Vector3(0, 0.1f, 0), new Vector3(0, -1, 0), Color.red, groundCheckRaySize);
+        // Debug.DrawRay(transform.position + new Vector3(0, 0.1f, 0), new Vector3(0, -1, 0), Color.red, groundCheckRaySize);
 
         // Read the direction of the movement input
         Vector2 inputDirection = controls.Player.Move.ReadValue<Vector2>();
