@@ -30,31 +30,41 @@ public class PauseButtons : MonoBehaviour
         pauseDisplay.style.display = DisplayStyle.None;
 
         resumeButton = pauseDocument.rootVisualElement.Q("Resume") as Button;
-        // restartButton = pauseDocument.rootVisualElement.Q("Restart") as Button;
+        restartButton = pauseDocument.rootVisualElement.Q("Restart") as Button;
         mainMenuButton = pauseDocument.rootVisualElement.Q("MainMenu") as Button;
 
-        resumeButton.RegisterCallback<ClickEvent>(ResumeGame);
-        // restartButton.RegisterCallback<ClickEvent>(RestartGame);
-        mainMenuButton.RegisterCallback<ClickEvent>(LoadMainMenu);
+        resumeButton.clicked += () => { ResumeGame(); };
+        restartButton.clicked += () => { RestartGame(); };
+        mainMenuButton.clicked += () => { LoadMainMenu(); };
     }
 
     private void PauseGame(InputAction.CallbackContext ctx)
     {
         pauseDisplay.style.display = DisplayStyle.Flex;
         Time.timeScale = 0.0f;
+
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
+        UnityEngine.Cursor.visible = true;
     }
 
-    private void ResumeGame(ClickEvent evt)
+    private void ResumeGame()
     {
         Debug.Log("Resume");
-        // pauseDisplay.style.display = DisplayStyle.None;
-        // Time.timeScale = 1.0f;
+        pauseDisplay.style.display = DisplayStyle.None;
+        Time.timeScale = 1.0f;
+
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.visible = false;
     }
-    private void RestartGame(ClickEvent evt)
+    private void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1.0f;
+
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.visible = false;
     }
-    private void LoadMainMenu(ClickEvent evt)
+    private void LoadMainMenu()
     {
         Debug.Log("LoadMainMenu");
         SceneManager.LoadScene(MainMenuScene);
@@ -63,5 +73,4 @@ public class PauseButtons : MonoBehaviour
     {
         controls.Disable();
     }
-
 }

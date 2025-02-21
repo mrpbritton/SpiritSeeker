@@ -29,6 +29,10 @@ public class MMButtons : MonoBehaviour
 
     private void StartGame(ClickEvent evt)
     {
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
         SceneManager.LoadScene(GameScene);
     }
 
