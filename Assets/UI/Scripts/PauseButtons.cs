@@ -73,4 +73,9 @@ public class PauseButtons : MonoBehaviour
     {
         controls.Disable();
     }
+
+    public void Deactivate()
+    {
+        this.enabled = false;
+    }
 }

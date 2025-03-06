@@ -3,6 +3,8 @@ using UnityEngine.Events;
 
 public class HPController : MonoBehaviour
 {
+    public UnityEvent Dead;
+
     public Healthbar healthbar;
 
     private HealthVolume hpChange;
@@ -31,5 +33,14 @@ public class HPController : MonoBehaviour
     {
         currentHP = Mathf.Clamp(currentHP + amountOfHP, 0, maxHP);
         healthbar.UpdateHPBar(currentHP, maxHP);
+        if (currentHP == 0)
+        {
+            Dead.Invoke();
+        }
+    }
+
+    public void Test()
+    {
+        Time.timeScale = 0.0f;
     }
 }

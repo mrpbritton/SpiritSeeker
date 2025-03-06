@@ -1,0 +1,8 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/PauseStyle.uss?fileID=7433441132597879392&amp;guid=23c19f1505252704c9a0375ae080f10d&amp;type=3#PauseStyle" />
+    <engine:VisualElement name="GameOverContainer" style="flex-grow: 1; background-color: rgba(83, 0, 0, 0.69);">
+        <engine:Label text="You died" name="Title" class="header" />
+        <engine:Button text="Restart" name="Restart" class="button" />
+        <engine:Button text="Main menu" name="MainMenu" parse-escape-sequences="true" class="button" />
+    </engine:VisualElement>
+</engine:UXML>

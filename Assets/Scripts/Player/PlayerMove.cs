@@ -148,18 +148,9 @@ public class PlayerMove : MonoBehaviour
     {
         controls.Disable();
     }
+
+    public void Deactivate()
+    {
+        this.gameObject.SetActive(false);   
+    }
 }
-
-// Sprint code that worked
-
-/*
-        if (controls.Player.Sprint.IsPressed())
-        {
-            Debug.Log("Sprint");
-            movementSpeed = 10f;
-        }
-        else
-        {
-            movementSpeed = 5f;
-        }
-*/
