@@ -3,12 +3,12 @@ using UnityEngine.UIElements;
 
 public class Healthbar : MonoBehaviour
 {
-    [Range(0, 1)] public float HPFill = 1;
-
+    // UI Doc Related Values
     private UIDocument playerHUD;
     private VisualElement healthbar;
-    private float baseHP;
+    private float hPBarWidth;
     private bool baseHPFound = false;
+    public float HPFill = 1;
 
     private void OnEnable()
     {
@@ -22,12 +22,17 @@ public class Healthbar : MonoBehaviour
         if(healthbar.resolvedStyle.width >= 0 && !baseHPFound)
         {
             baseHPFound = true;
-            baseHP = healthbar.resolvedStyle.width;
-            Debug.Log(baseHP);
+            hPBarWidth = healthbar.resolvedStyle.width;
+            Debug.Log(hPBarWidth);
         }
-        if(healthbar.resolvedStyle.width >= 0)
+    }
+
+    public void UpdateHPBar(float currentHP, float maxHP)
+    {
+        if (healthbar.resolvedStyle.width >= 0)
         {
-            healthbar.style.width = baseHP * HPFill;
+            HPFill = Mathf.Clamp(currentHP / maxHP, 0, 1);
+            healthbar.style.width = hPBarWidth * HPFill;
         }
     }
 }
