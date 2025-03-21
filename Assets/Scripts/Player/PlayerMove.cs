@@ -20,6 +20,7 @@ public class PlayerMove : MonoBehaviour
     private bool isGrounded = true;
     public bool canDoubleJump = false;
     public bool canSprint = false;
+    private bool canAttack = true;
 
     private void OnEnable()
     {
@@ -47,6 +48,13 @@ public class PlayerMove : MonoBehaviour
             movementSpeed = 5f;
         }
 
+        if (controls.Player.Attack.triggered && canAttack)
+        {
+            canAttack = false;
+            StartCoroutine(nameof(AttackCD));
+            playerAnimator.Play("MeeleeAttack_OneHanded");
+        }
+
         // Move forward
         if (inputDirection.y == 1)
         {
@@ -72,7 +80,7 @@ public class PlayerMove : MonoBehaviour
         }
 
         // Not walking
-        if(inputDirection == Vector2.zero)
+        if(inputDirection == Vector2.zero && canAttack)
         {
             MoveAndAnimate("Idle", Vector3.zero);
         }
@@ -139,8 +147,16 @@ public class PlayerMove : MonoBehaviour
         {
             yield return new WaitForSeconds(10);
             canSprint = false;
-            Debug.Log("Sprint false");
             StopCoroutine(nameof(SprintCD));
+        }
+    }
+    public IEnumerator AttackCD()
+    {
+        while (!canAttack)
+        {
+            yield return new WaitForSeconds(1);
+            canAttack = true;
+            StopCoroutine(nameof(AttackCD));
         }
     }
 
