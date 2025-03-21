@@ -12,7 +12,7 @@ public class PlayerMove : MonoBehaviour
     public float jumpHeight = 10f;
     public float groundCheckRaySize = 0.1f;
 
-    private Controls controls;
+    public Controls controls;
     private CharacterController playerCC;
     private Animator playerAnimator;
     private Vector3 moveDirection;
@@ -38,6 +38,7 @@ public class PlayerMove : MonoBehaviour
         // Read the direction of the movement input
         Vector2 inputDirection = controls.Player.Move.ReadValue<Vector2>();
 
+        //Sprint
         if (controls.Player.Sprint.IsPressed() && canSprint)
         {
             StartCoroutine(nameof(SprintCD));
@@ -47,13 +48,14 @@ public class PlayerMove : MonoBehaviour
         {
             movementSpeed = 5f;
         }
-
-        if (controls.Player.Attack.triggered && canAttack)
+        
+        // Attack
+        /*if (controls.Player.Attack.triggered && canAttack)
         {
             canAttack = false;
             StartCoroutine(nameof(AttackCD));
             playerAnimator.Play("MeeleeAttack_OneHanded");
-        }
+        }*/
 
         // Move forward
         if (inputDirection.y == 1)

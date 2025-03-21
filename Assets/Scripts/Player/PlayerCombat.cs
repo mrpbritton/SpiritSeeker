@@ -3,37 +3,33 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    private Controls controls;
-    private CharacterController playerCC;
-    private Animator playerAnimator;
+    public PlayerMove movementScript;
+    private Animator swordAnimator;
     private bool canAttack = true;
 
     private void OnEnable()
     {
-        controls = new Controls();
-        controls.Enable();
-
-        playerCC = GetComponent<CharacterController>();
-        playerAnimator = GetComponent<Animator>();
+        swordAnimator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (controls.Player.Attack.triggered && canAttack)
+        if (movementScript.controls.Player.Attack.triggered && canAttack)
         {
             canAttack = false;
             StartCoroutine(nameof(AttackCD));
-            playerAnimator.Play("MeeleeAttack_OneHanded");
+            swordAnimator.Play("SwordSpin");
         }
     }
+
     public IEnumerator AttackCD()
     {
         while (!canAttack)
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1);
             canAttack = true;
             StopCoroutine(nameof(AttackCD));
+            swordAnimator.Play("SwordIdle");
         }
     }
 }
