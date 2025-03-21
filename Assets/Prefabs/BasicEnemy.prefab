@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3300146529287337870}
   - component: {fileID: 7204031595826807180}
   - component: {fileID: 3754688419833151752}
+  - component: {fileID: 3727770686099085146}
   m_Layer: 0
   m_Name: BasicEnemy
   m_TagString: healthVolume
@@ -70,7 +71,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 70d17a177d5d74248bd997a8284c7471, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -213,3 +214,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3727770686099085146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133845959955998972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bfaafe571bcd644eb075219288d006e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 5
+  material: {fileID: 2100000, guid: 70d17a177d5d74248bd997a8284c7471, type: 2}
