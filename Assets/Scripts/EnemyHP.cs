@@ -1,10 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyHP : MonoBehaviour
 {
     public float maxHP = 10;
+    public float criticalHP = 3;
     public Material lowHealthMaterial;
+
+    public UnityEvent EnemyDeath;
 
     private Renderer mRenderer;
     private float currentHP;
@@ -24,20 +28,20 @@ public class EnemyHP : MonoBehaviour
             currentHP += amount;
             canTakeDamage = false;
             StartCoroutine(nameof(DamageCD));
-            if(currentHP <= 2)
+            if(currentHP <= criticalHP)
             {
                 mRenderer.material = lowHealthMaterial;
             }
             if (currentHP <= 0)
             {
-                Die();
+                EnemyDeath.Invoke();
             }
         }
     }
 
     public void Die()
     {
-        Destroy(gameObject);
+        this.gameObject.SetActive(false);
     }
 
     public IEnumerator DamageCD()
