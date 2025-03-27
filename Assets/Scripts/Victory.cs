@@ -9,7 +9,8 @@ public class Victory : MonoBehaviour
     {
         if(other.gameObject.layer == 7)
         {
-            Debug.Log("Success");
+            victory.Invoke();
+            Time.timeScale = 0f;
         }
     }
 }
