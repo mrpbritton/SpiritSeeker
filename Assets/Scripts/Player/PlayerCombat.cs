@@ -62,7 +62,6 @@ public class PlayerCombat : MonoBehaviour
             foreach (PlayerSwords sword in swordArray)
             {
                 sword.canDamage = false;
-                Debug.Log(sword.canDamage);
             }
         }
     }

@@ -23,7 +23,6 @@ public class Healthbar : MonoBehaviour
         {
             baseHPFound = true;
             hPBarWidth = healthbar.resolvedStyle.width;
-            Debug.Log(hPBarWidth);
         }
     }
 
