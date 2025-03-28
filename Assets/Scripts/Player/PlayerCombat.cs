@@ -7,6 +7,7 @@ public class PlayerCombat : MonoBehaviour
 {
     public Animator swordAnimator;
     public static List<PlayerSwords> swordArray = new List<PlayerSwords>();
+    public PowerUpController powerUpController;
 
     private PlayerMove movementScript;
     private bool canAttack = true;
@@ -71,6 +72,7 @@ public class PlayerCombat : MonoBehaviour
         {
             yield return new WaitForSeconds(5);
             buffed = false;
+            powerUpController.usedDamage();
             StopCoroutine(nameof(BuffCD));
             foreach (PlayerSwords sword in swordArray)
             {

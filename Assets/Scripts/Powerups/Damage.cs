@@ -1,12 +1,15 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Damage : MonoBehaviour
 {
+    public UnityEvent damageActivated;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<PlayerCombat>(out PlayerCombat player))
+        if (other.gameObject.layer == 7)
         {
-            player.DamageBoost();
+            damageActivated.Invoke();   
             this.gameObject.SetActive(false);
         }
     }

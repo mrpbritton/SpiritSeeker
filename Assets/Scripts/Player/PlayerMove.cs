@@ -11,6 +11,7 @@ public class PlayerMove : MonoBehaviour
     public float gravity = -9.81f;
     public float jumpHeight = 10f;
     public float groundCheckRaySize = 0.1f;
+    public PowerUpController powerUpController;
 
     public Controls controls;
     private CharacterController playerCC;
@@ -18,7 +19,7 @@ public class PlayerMove : MonoBehaviour
     private Vector3 moveDirection;
     private Vector3 downForce;
     private bool isGrounded = true;
-    public bool canDoubleJump = false;
+    private bool canDoubleJump = false;
     public bool canSprint = false;
     private bool canAttack = true;
 
@@ -103,6 +104,7 @@ public class PlayerMove : MonoBehaviour
             if(isGrounded == false && canDoubleJump == true)
             {
                 canDoubleJump = false;
+                powerUpController.usedDoubleJump();
             }
         }
 
@@ -143,12 +145,23 @@ public class PlayerMove : MonoBehaviour
         moveDirection = direction;
     }
 
+    public void doubleJumpNowActive()
+    {
+        canDoubleJump = true;
+    }
+
+    public void sprintNowActive()
+    {
+        canSprint = true;
+    }
+
     public IEnumerator SprintCD()
     {
         while (canSprint)
         {
             yield return new WaitForSeconds(10);
             canSprint = false;
+            powerUpController.usedSprint();
             StopCoroutine(nameof(SprintCD));
         }
     }
