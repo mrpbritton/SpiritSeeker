@@ -1,17 +1,53 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAim : MonoBehaviour
 {
     public Transform target;
+    public Transform boltSpawnPoint;
+    public float fireRate = 1;
+    public float boltSpeed = 5;
+    public float attackRange = 30;
+    public float boltsHeld = 5;
+    public GameObject boltPrefab;
 
     private Vector3 distanceToPlayer;
     private float distanceCondensed;
+    private List<Bolt> bolts = new List<Bolt>();
+    private bool inRange = false;
 
     private void OnEnable()
     {
         StartCoroutine(nameof(Aiming));
-        StartCoroutine(nameof(recordDistance));
+        StartCoroutine(nameof(Shooting));
+
+        // Instantiate the bolts
+        for (int i = 0; i < boltsHeld; i++)
+        {
+            // A bullet gets instantiated and added to the list of bullets
+            bolts.Add(Instantiate(boltPrefab).GetComponent<Bolt>());
+        }
+
+        // Disable them to start
+        foreach (Bolt bolt in bolts)
+        {
+            bolt.gameObject.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        distanceToPlayer = transform.position - target.position;
+        distanceCondensed = Mathf.Abs(distanceToPlayer.x) + Mathf.Abs(distanceToPlayer.z);
+        if(distanceCondensed <= attackRange)
+        {
+            inRange = true;
+        }
+        else
+        {
+            inRange = false;
+        }
     }
 
     public void StopAiming()
@@ -33,15 +69,29 @@ public class EnemyAim : MonoBehaviour
         }
     }
 
-    IEnumerator recordDistance()
+    IEnumerator Shooting()
     {
         while (true)
         {
-            distanceToPlayer = transform.position - target.position;
-            distanceCondensed = Mathf.Abs(distanceToPlayer.x) + Mathf.Abs(distanceToPlayer.z);
-            Debug.Log(distanceCondensed);
+            yield return new WaitForSeconds(fireRate);
 
-            yield return new WaitForSeconds(1);
+            if (inRange)
+            {
+                // Start firing bolts from the list of held bolts
+                foreach (Bolt bolt in bolts)
+                {
+
+                    // Only fire inactive bolts
+                    if (!bolt.isActive)
+                    {
+                        bolt.gameObject.SetActive(true);
+                        bolt.transform.position = boltSpawnPoint.position;
+                        bolt.Fire(boltSpeed, transform.forward);
+                        bolt.transform.rotation = Quaternion.LookRotation(transform.forward);
+                        break;
+                    }
+                }
+            }
         }
     }
 }

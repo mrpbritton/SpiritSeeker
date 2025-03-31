@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     public Animator swordAnimator;
-    public static List<PlayerSwords> swordArray = new List<PlayerSwords>();
+    public PlayerSwords[] swordArray;
     public PowerUpController powerUpController;
 
     private PlayerMove movementScript;
@@ -16,11 +16,7 @@ public class PlayerCombat : MonoBehaviour
     private void OnEnable()
     {
         movementScript = GetComponent<PlayerMove>();
-        PlayerSwords[] allSwords = GetComponentsInChildren<PlayerSwords>();
-        foreach(PlayerSwords sword in allSwords)
-        {
-            swordArray.Add(sword);
-        }
+        swordArray = GetComponentsInChildren<PlayerSwords>();
         foreach (PlayerSwords sword in swordArray)
         {
             sword.canDamage = false;
@@ -32,12 +28,21 @@ public class PlayerCombat : MonoBehaviour
         if (movementScript.controls.Player.Attack.triggered && canAttack)
         {
             canAttack = false;
-            StartCoroutine(nameof(AttackCD));
+            StartCoroutine(AttackCD(1));
             swordAnimator.Play("SwordSpin");
             foreach (PlayerSwords sword in swordArray)
             {
                 sword.canDamage = true;
             }
+        }
+        if (movementScript.controls.Player.SecondaryAttack.triggered && canAttack)
+        {
+            canAttack = false;
+            StartCoroutine(AttackCD(0.5f));
+            swordAnimator.Play("SwordThrow");
+            swordArray[0].canDamage = true;
+            swordArray[1].canDamage = true;
+            swordArray[2].canDamage = true;
         }
     }
 
@@ -52,11 +57,11 @@ public class PlayerCombat : MonoBehaviour
         StartCoroutine(nameof(BuffCD));
     }
 
-    public IEnumerator AttackCD()
+    public IEnumerator AttackCD(float attackLength)
     {
         while (!canAttack)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(attackLength);
             canAttack = true;
             StopCoroutine(nameof(AttackCD));
             swordAnimator.Play("SwordIdle");
