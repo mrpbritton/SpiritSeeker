@@ -16,6 +16,7 @@ public class EnemyAim : MonoBehaviour
     private float distanceCondensed;
     private List<Bolt> bolts = new List<Bolt>();
     private bool inRange = false;
+    private bool closeRange = false;
 
     private void OnEnable()
     {
@@ -85,6 +86,16 @@ public class EnemyAim : MonoBehaviour
                     if (!bolt.isActive)
                     {
                         bolt.gameObject.SetActive(true);
+                        if (distanceCondensed <= 10 && closeRange == false)
+                        {
+                            closeRange = true;
+                            bolt.damage = bolt.damage / 2;
+                        }
+                        else if (distanceCondensed >= 10 && closeRange == true)
+                        {
+                            closeRange = false;
+                            bolt.damage = bolt.damage * 2;
+                        }
                         bolt.transform.position = boltSpawnPoint.position;
                         bolt.Fire(boltSpeed, transform.forward);
                         bolt.transform.rotation = Quaternion.LookRotation(transform.forward);

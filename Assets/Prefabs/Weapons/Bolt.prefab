@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 0
   lifetime: 3
-  damage: -10
+  damage: -6
   boltPieces:
   - {fileID: 2143643922336343851}
   - {fileID: 6648571870861242596}

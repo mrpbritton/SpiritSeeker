@@ -19,7 +19,7 @@ public class PlayerMove : MonoBehaviour
     private Vector3 moveDirection;
     private Vector3 downForce;
     private bool isGrounded = true;
-    private bool canDoubleJump = false;
+    public bool canDoubleJump = false;
     public bool canSprint = false;
     private bool canAttack = true;
 

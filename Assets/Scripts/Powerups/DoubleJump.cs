@@ -9,8 +9,14 @@ public class DoubleJump : MonoBehaviour
     {
         if(other.gameObject.layer == 7)
         {
-            doubleJumpActivated.Invoke();
-            this.gameObject.SetActive(false);
+            if(other.TryGetComponent<PlayerMove>(out PlayerMove player))
+            {
+                if (player.canDoubleJump == false)
+                {
+                    doubleJumpActivated.Invoke();
+                    this.gameObject.SetActive(false);
+                }
+            }
         }
     }
 }

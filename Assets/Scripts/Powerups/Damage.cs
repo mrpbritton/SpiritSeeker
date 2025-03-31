@@ -9,8 +9,14 @@ public class Damage : MonoBehaviour
     {
         if (other.gameObject.layer == 7)
         {
-            damageActivated.Invoke();   
-            this.gameObject.SetActive(false);
+            if (other.TryGetComponent<PlayerCombat>(out PlayerCombat player))
+            {
+                if (player.buffed == false)
+                {
+                    damageActivated.Invoke();
+                    this.gameObject.SetActive(false);
+                }
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6638058987630561948}
   - component: {fileID: 2906657201713526235}
   - component: {fileID: 231683114972703616}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,3 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c975eff9b237834aa3159d92da8d1f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprintActivated:
+    m_PersistentCalls:
+      m_Calls: []

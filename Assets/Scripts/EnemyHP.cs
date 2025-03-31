@@ -13,7 +13,7 @@ public class EnemyHP : MonoBehaviour
     private Renderer mRenderer;
     private float currentHP;
     private bool canTakeDamage = true;
-    private float damageCD = 0.5f;
+    private float damageCD = 0.25f;
 
     private void OnEnable()
     {

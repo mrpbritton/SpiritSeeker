@@ -43,7 +43,6 @@ public class GameOverButtons : MonoBehaviour
     }
     private void LoadMainMenu()
     {
-        Debug.Log("LoadMainMenu");
         SceneManager.LoadScene(MainMenuScene);
     }
 }

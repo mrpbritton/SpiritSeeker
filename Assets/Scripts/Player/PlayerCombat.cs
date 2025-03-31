@@ -8,10 +8,11 @@ public class PlayerCombat : MonoBehaviour
     public Animator swordAnimator;
     public PlayerSwords[] swordArray;
     public PowerUpController powerUpController;
+    public float damageBuffMultiplier = 2;
+    public bool buffed = false;
 
     private PlayerMove movementScript;
     private bool canAttack = true;
-    private bool buffed = false;
 
     private void OnEnable()
     {
@@ -38,7 +39,7 @@ public class PlayerCombat : MonoBehaviour
         if (movementScript.controls.Player.SecondaryAttack.triggered && canAttack)
         {
             canAttack = false;
-            StartCoroutine(AttackCD(0.5f));
+            StartCoroutine(AttackCD(1));
             swordAnimator.Play("SwordThrow");
             swordArray[0].canDamage = true;
             swordArray[1].canDamage = true;
@@ -51,8 +52,7 @@ public class PlayerCombat : MonoBehaviour
         buffed = true;
         foreach (PlayerSwords sword in swordArray)
         {
-            sword.damage = sword.damage * 5;
-            Debug.Log(sword.damage);
+            sword.damage = sword.damage * damageBuffMultiplier;
         }
         StartCoroutine(nameof(BuffCD));
     }
@@ -81,7 +81,7 @@ public class PlayerCombat : MonoBehaviour
             StopCoroutine(nameof(BuffCD));
             foreach (PlayerSwords sword in swordArray)
             {
-                sword.damage = sword.damage / 5;
+                sword.damage = sword.damage / damageBuffMultiplier;
             }
         }
     }

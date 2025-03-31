@@ -9,8 +9,14 @@ public class Sprint : MonoBehaviour
     {
         if (other.gameObject.layer == 7)
         {
-            sprintActivated.Invoke();
-            this.gameObject.SetActive(false);
+            if (other.TryGetComponent<PlayerMove>(out PlayerMove player))
+            {
+                if (player.canSprint == false)
+                {
+                    sprintActivated.Invoke();
+                    this.gameObject.SetActive(false);
+                }
+            }
         }
     }
 }
