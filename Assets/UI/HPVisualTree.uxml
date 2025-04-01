@@ -7,9 +7,15 @@
     </engine:VisualElement>
     <engine:VisualElement name="PowerUps" style="flex-grow: 1; max-height: 10%; padding-left: 0.5%;">
         <engine:VisualElement name="Backdrop" style="flex-grow: 1; background-color: rgb(0, 0, 0); max-width: 30%; flex-direction: row;">
-            <engine:VisualElement name="Sprint" style="flex-grow: 1; background-color: rgb(255, 160, 0); max-width: 15%; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 2%; margin-right: 2%; margin-bottom: 2%; margin-left: 2%;" />
-            <engine:VisualElement name="DoubleJump" style="flex-grow: 1; background-color: rgb(252, 255, 0); max-width: 15%; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 2%; margin-right: 2%; margin-bottom: 2%; margin-left: 2%;" />
-            <engine:VisualElement name="Damage" style="flex-grow: 1; background-color: rgb(255, 38, 0); max-width: 15%; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 2%; margin-right: 2%; margin-bottom: 2%; margin-left: 2%;" />
+            <engine:VisualElement name="Sprint" style="flex-grow: 1; background-color: rgb(255, 160, 0); max-width: 15%; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 2%; margin-right: 2%; margin-bottom: 2%; margin-left: 2%;">
+                <engine:Label text="S" name="SprintLetter" style="-unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/GothicBlastDemo-xRRLR.ttf?fileID=12800000&amp;guid=e809aa247bc7dcd43aa823516a7219f5&amp;type=3#GothicBlastDemo-xRRLR&quot;); -unity-text-align: middle-center; font-size: 90px; max-height: 75%;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="DoubleJump" style="flex-grow: 1; background-color: rgb(252, 255, 0); max-width: 15%; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 2%; margin-right: 2%; margin-bottom: 2%; margin-left: 2%;">
+                <engine:Label text="J" name="DJLetter" style="-unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/GothicBlastDemo-xRRLR.ttf?fileID=12800000&amp;guid=e809aa247bc7dcd43aa823516a7219f5&amp;type=3#GothicBlastDemo-xRRLR&quot;); -unity-text-align: middle-center; font-size: 90px; max-height: 75%;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="Damage" style="flex-grow: 1; background-color: rgb(255, 38, 0); max-width: 15%; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 2%; margin-right: 2%; margin-bottom: 2%; margin-left: 2%;">
+                <engine:Label text="A" name="DamageLetter" style="-unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/GothicBlastDemo-xRRLR.ttf?fileID=12800000&amp;guid=e809aa247bc7dcd43aa823516a7219f5&amp;type=3#GothicBlastDemo-xRRLR&quot;); -unity-text-align: middle-center; font-size: 90px; max-height: 75%;" />
+            </engine:VisualElement>
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>

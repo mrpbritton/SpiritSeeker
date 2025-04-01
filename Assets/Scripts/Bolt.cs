@@ -46,8 +46,6 @@ public class Bolt : MonoBehaviour
 
     public void Fire(float setSpeed, Vector3 setDirection)
     {
-        Debug.Log("Fire called");
-
         foreach (var piece in boltPieces)
         {
             piece.enabled = true;
