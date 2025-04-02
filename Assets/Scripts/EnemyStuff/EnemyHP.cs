@@ -7,6 +7,7 @@ public class EnemyHP : MonoBehaviour
     public float maxHP = 10;
     public float criticalHP = 3;
     public Material lowHealthMaterial;
+    public Material baseMaterial;
 
     public UnityEvent EnemyDeath;
 
@@ -28,10 +29,11 @@ public class EnemyHP : MonoBehaviour
             currentHP += amount;
             canTakeDamage = false;
             StartCoroutine(nameof(DamageCD));
-            if(currentHP <= criticalHP)
+            StartCoroutine(nameof(DamagedVisual));
+            /* if(currentHP <= criticalHP)
             {
                 mRenderer.material = lowHealthMaterial;
-            }
+            } */
             if (currentHP <= 0)
             {
                 EnemyDeath.Invoke();
@@ -52,5 +54,13 @@ public class EnemyHP : MonoBehaviour
             canTakeDamage = true;
             StopCoroutine(nameof(DamageCD));
         }
+    }
+
+    private IEnumerator DamagedVisual()
+    {
+        mRenderer.material = lowHealthMaterial;
+        yield return new WaitForSeconds(0.25f);
+        mRenderer.material = baseMaterial;
+        StopCoroutine(nameof(DamagedVisual));
     }
 }

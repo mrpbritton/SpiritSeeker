@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  detectionDistance: 100
 --- !u!54 &3754688419833151752
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -231,6 +232,7 @@ MonoBehaviour:
   maxHP: 15
   criticalHP: 5
   lowHealthMaterial: {fileID: 2100000, guid: 5355072b7f4448b4fb8462fff6df986e, type: 2}
+  baseMaterial: {fileID: 2100000, guid: 70d17a177d5d74248bd997a8284c7471, type: 2}
   EnemyDeath:
     m_PersistentCalls:
       m_Calls:
