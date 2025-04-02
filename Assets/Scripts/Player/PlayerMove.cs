@@ -12,9 +12,10 @@ public class PlayerMove : MonoBehaviour
     public float jumpHeight = 10f;
     public float groundCheckRaySize = 0.1f;
     public PowerUpController powerUpController;
+    public Transform modelTransform;
 
     public Controls controls;
-    private CharacterController playerCC;
+    public CharacterController playerCC;
     private Animator playerAnimator;
     private Vector3 moveDirection;
     private Vector3 downForce;
@@ -29,7 +30,7 @@ public class PlayerMove : MonoBehaviour
         controls.Enable();
 
         playerCC = GetComponent<CharacterController>();
-        playerAnimator = GetComponent<Animator>();
+        playerAnimator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -37,7 +38,7 @@ public class PlayerMove : MonoBehaviour
         // Debug.DrawRay(transform.position + new Vector3(0, 0.1f, 0), new Vector3(0, -1, 0), Color.red, groundCheckRaySize);
 
         // Read the direction of the movement input
-        Vector2 inputDirection = controls.Player.Move.ReadValue<Vector2>();
+        Vector2 inputDirection = controls.Player.Move.ReadValue<Vector2>().normalized;
 
         //Sprint
         if (controls.Player.Sprint.IsPressed() && canSprint)
@@ -49,14 +50,6 @@ public class PlayerMove : MonoBehaviour
         {
             movementSpeed = 5f;
         }
-        
-        // Attack
-        /*if (controls.Player.Attack.triggered && canAttack)
-        {
-            canAttack = false;
-            StartCoroutine(nameof(AttackCD));
-            playerAnimator.Play("MeeleeAttack_OneHanded");
-        }*/
 
         // Move forward
         if (inputDirection.y == 1)
@@ -89,8 +82,11 @@ public class PlayerMove : MonoBehaviour
         }
 
         // Apply movement
+        Vector3 convertToLocalTransform = new Vector3(-inputDirection.y, 0, inputDirection.x);
+        //convertToLocalTransform = modelTransform.TransformPoint(convertToLocalTransform).normalized;
+        //Debug.Log($"{inputDirection} | {convertToLocalTransform}");
         playerCC.Move(moveDirection * Time.deltaTime * movementSpeed);
-
+        
         // Keep downForce at 0 because otherwise you're accumulating a downForce.y that the jumpHeight can't overcome
         if(isGrounded && downForce.y < 0)
         {
@@ -110,6 +106,7 @@ public class PlayerMove : MonoBehaviour
 
         downForce.y += gravity * Time.deltaTime;
         playerCC.Move(downForce * Time.deltaTime);
+    
     }
 
     private void FixedUpdate()
