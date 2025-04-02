@@ -41,6 +41,7 @@ public class EnemyAim : MonoBehaviour
     {
         distanceToPlayer = transform.position - target.position;
         distanceCondensed = Mathf.Abs(distanceToPlayer.x) + Mathf.Abs(distanceToPlayer.z);
+
         if(distanceCondensed <= attackRange)
         {
             inRange = true;

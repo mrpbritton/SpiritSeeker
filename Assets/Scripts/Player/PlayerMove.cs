@@ -14,15 +14,16 @@ public class PlayerMove : MonoBehaviour
     public float groundCheckRaySize = 0.1f;
     public PowerUpController powerUpController;
     public Transform modelTransform;
-
     public Controls controls;
     public CharacterController playerCC;
+    public bool canDoubleJump = false;
+    public bool canSprint = false;
+    public bool knockbackApplied = false;
+
     private Animator playerAnimator;
     private Vector3 moveDirection;
     private Vector3 downForce;
     private bool isGrounded = true;
-    public bool canDoubleJump = false;
-    public bool canSprint = false;
     private bool canAttack = true;
 
     private void OnEnable()
