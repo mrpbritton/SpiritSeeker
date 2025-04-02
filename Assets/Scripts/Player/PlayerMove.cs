@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq.Expressions;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -40,6 +41,17 @@ public class PlayerMove : MonoBehaviour
         // Read the direction of the movement input
         Vector2 inputDirection = controls.Player.Move.ReadValue<Vector2>().normalized;
 
+        Vector3 directionalModifier = new Vector3(0, 0, 0);
+
+        if(inputDirection.y < 1 && inputDirection.y > 0)
+        {
+            directionalModifier = transform.forward;
+        }
+        else if (inputDirection.y > -1 && inputDirection.y < 0)
+        {
+            directionalModifier = -transform.forward;
+        }
+
         //Sprint
         if (controls.Player.Sprint.IsPressed() && canSprint)
         {
@@ -66,13 +78,13 @@ public class PlayerMove : MonoBehaviour
         // Move right
         if(inputDirection.x > 0)
         {
-            MoveAndAnimate("StrafeRight", transform.right);
+            MoveAndAnimate("StrafeRight", transform.right + directionalModifier);
         }
 
-        // Move left forward
+        // Move left
         if(inputDirection.x < 0)
         {
-            MoveAndAnimate("StrafeLeft", -transform.right);
+            MoveAndAnimate("StrafeLeft", -transform.right + directionalModifier);
         }
 
         // Not walking

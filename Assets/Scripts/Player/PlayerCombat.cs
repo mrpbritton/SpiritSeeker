@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     public Animator swordAnimator;
+    public GameObject swordHolder;
     public PlayerSwords[] swordArray;
     public PowerUpController powerUpController;
     public float damageBuffMultiplier = 2;
@@ -17,7 +18,7 @@ public class PlayerCombat : MonoBehaviour
     private void OnEnable()
     {
         movementScript = GetComponent<PlayerMove>();
-        swordArray = GetComponentsInChildren<PlayerSwords>();
+        swordArray = swordHolder.GetComponentsInChildren<PlayerSwords>();
         foreach (PlayerSwords sword in swordArray)
         {
             sword.canDamage = false;
