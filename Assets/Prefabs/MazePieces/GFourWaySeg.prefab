@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8758859865359399525}
   - component: {fileID: 1022316548279790613}
   - component: {fileID: 6981884191098684357}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 1749870152060739414}
   - component: {fileID: 1048307766885310079}
   - component: {fileID: 4801006046769706941}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 2 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1387,7 +1387,7 @@ GameObject:
   - component: {fileID: 1812739079498873783}
   - component: {fileID: 1728941713789401136}
   - component: {fileID: 6273832909743397532}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1710,7 +1710,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7414885170482991570}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GFourWaySeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1749,7 +1749,7 @@ GameObject:
   - component: {fileID: 2743602453881280210}
   - component: {fileID: 8743294295305506502}
   - component: {fileID: 5877651598259658074}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

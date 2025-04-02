@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8262637300550486065}
   - component: {fileID: 8708748757208902878}
   - component: {fileID: 3118560222997117286}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 2 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 1756997965411276565}
   - component: {fileID: 638855921251545001}
   - component: {fileID: 5823787918699491761}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,7 +663,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8598919828126766562}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ThreePillars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -701,7 +701,7 @@ GameObject:
   - component: {fileID: 5077750182794164550}
   - component: {fileID: 5469979744788403979}
   - component: {fileID: 4064847400292165550}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 2 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5854847242871359589}
   - component: {fileID: 9002855930035350074}
   - component: {fileID: 4366182071953189473}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 660325063306839101}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallWithOnePillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 65220379569248802}
   - component: {fileID: 7750761121370850222}
   - component: {fileID: 1135359534748489451}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3786571780106246107}
   - component: {fileID: 8558597664751686563}
   - component: {fileID: 6883773887796607300}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 80990416897133553}
   - component: {fileID: 4858345327656353712}
   - component: {fileID: 5162033244089016356}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -907,7 +907,7 @@ GameObject:
   - component: {fileID: 5413797135772396057}
   - component: {fileID: 600257066741850956}
   - component: {fileID: 8298245092768139500}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1470,7 +1470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1223284427213801664}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GCornerSeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}

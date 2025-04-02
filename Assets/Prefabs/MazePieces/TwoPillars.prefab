@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6851183992197050082}
   - component: {fileID: 3840629593447700199}
   - component: {fileID: 4249372335242112092}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 7671568295346114149}
   - component: {fileID: 6160615907360335229}
   - component: {fileID: 6803571922498693907}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 2 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,7 +663,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6556770862935516003}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TwoPillars
   m_TagString: Untagged
   m_Icon: {fileID: 0}

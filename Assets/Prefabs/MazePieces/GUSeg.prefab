@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6875721106728657654}
   - component: {fileID: 4589515229611445970}
   - component: {fileID: 9001747981798248289}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 7119352048288055031}
   - component: {fileID: 7790105359567147808}
   - component: {fileID: 8448078421387009478}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -903,7 +903,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1936648895858175308}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GUSeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -941,7 +941,7 @@ GameObject:
   - component: {fileID: 599203869467192929}
   - component: {fileID: 2263023254831605393}
   - component: {fileID: 618312316459473427}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
