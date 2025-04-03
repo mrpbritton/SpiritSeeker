@@ -13,7 +13,9 @@ public class DoubleJump : MonoBehaviour
             {
                 if (player.canDoubleJump == false)
                 {
-                    doubleJumpActivated.Invoke();
+                    player.doubleJumpNowActive();
+                    PowerUpController HUD = other.GetComponentInChildren<PowerUpController>();
+                    HUD.haveDoubleJump();
                     this.gameObject.SetActive(false);
                 }
             }

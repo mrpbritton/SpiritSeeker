@@ -13,7 +13,9 @@ public class Damage : MonoBehaviour
             {
                 if (player.buffed == false)
                 {
-                    damageActivated.Invoke();
+                    player.DamageBoost(); 
+                    PowerUpController HUD = other.GetComponentInChildren<PowerUpController>();
+                    HUD.haveDamage();
                     this.gameObject.SetActive(false);
                 }
             }

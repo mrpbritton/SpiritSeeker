@@ -13,7 +13,9 @@ public class Sprint : MonoBehaviour
             {
                 if (player.canSprint == false)
                 {
-                    sprintActivated.Invoke();
+                    player.sprintNowActive(); 
+                    PowerUpController HUD = other.GetComponentInChildren<PowerUpController>();
+                    HUD.haveSprint();
                     this.gameObject.SetActive(false);
                 }
             }
