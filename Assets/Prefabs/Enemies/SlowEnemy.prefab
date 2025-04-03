@@ -81,7 +81,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
+  m_ReceiveGI: 2
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -459,6 +459,22 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -1.1492066
       objectReference: {fileID: 0}
+    - target: {fileID: 5467712350661347051, guid: 3f580e4d7a838a34fae95112a1b1ddd2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008675404767847863, guid: 3f580e4d7a838a34fae95112a1b1ddd2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037462949832268561, guid: 3f580e4d7a838a34fae95112a1b1ddd2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7806982608503353944, guid: 3f580e4d7a838a34fae95112a1b1ddd2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7941428243557829030, guid: 3f580e4d7a838a34fae95112a1b1ddd2, type: 3}
       propertyPath: m_LocalScale.x
       value: 200
@@ -483,9 +499,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8626570917669611668, guid: 3f580e4d7a838a34fae95112a1b1ddd2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9074244886477341154, guid: 3f580e4d7a838a34fae95112a1b1ddd2, type: 3}
       propertyPath: m_Name
       value: EnemySword
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074244886477341154, guid: 3f580e4d7a838a34fae95112a1b1ddd2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

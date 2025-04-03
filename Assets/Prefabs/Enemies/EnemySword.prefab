@@ -103,6 +103,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7334951474422550414, guid: ab2519d39c25c9442983d4141abb7554, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 132083945168169662, guid: ab2519d39c25c9442983d4141abb7554, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 876143298232763383, guid: ab2519d39c25c9442983d4141abb7554, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ab2519d39c25c9442983d4141abb7554, type: 3}
       propertyPath: m_Name
       value: Sword
@@ -111,18 +123,38 @@ PrefabInstance:
       propertyPath: m_TagString
       value: healthVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 2766212503428324877, guid: ab2519d39c25c9442983d4141abb7554, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3250233862321393286, guid: ab2519d39c25c9442983d4141abb7554, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3250233862321393286, guid: ab2519d39c25c9442983d4141abb7554, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8508400ae11b5d546be0301e2e8148d8, type: 2}
     - target: {fileID: 5636708789470549714, guid: ab2519d39c25c9442983d4141abb7554, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636708789470549714, guid: ab2519d39c25c9442983d4141abb7554, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8508400ae11b5d546be0301e2e8148d8, type: 2}
     - target: {fileID: 8032750206264916975, guid: ab2519d39c25c9442983d4141abb7554, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032750206264916975, guid: ab2519d39c25c9442983d4141abb7554, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: bd70f16fdba1e9645a155efa9f084fee, type: 2}
+    - target: {fileID: 8084854973141751649, guid: ab2519d39c25c9442983d4141abb7554, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8084854973141751649, guid: ab2519d39c25c9442983d4141abb7554, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
