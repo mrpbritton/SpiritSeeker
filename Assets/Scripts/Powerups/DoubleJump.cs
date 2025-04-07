@@ -5,6 +5,13 @@ public class DoubleJump : MonoBehaviour
 {
     public UnityEvent doubleJumpActivated;
 
+    private EyeTracking eyeTracking;
+
+    private void OnEnable()
+    {
+        eyeTracking = GetComponentInChildren<EyeTracking>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == 7)
@@ -16,6 +23,7 @@ public class DoubleJump : MonoBehaviour
                     player.doubleJumpNowActive();
                     PowerUpController HUD = other.GetComponentInChildren<PowerUpController>();
                     HUD.haveDoubleJump();
+                    eyeTracking.enabled = false;
                     this.gameObject.SetActive(false);
                 }
             }

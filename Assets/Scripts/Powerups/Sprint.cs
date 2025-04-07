@@ -5,6 +5,13 @@ public class Sprint : MonoBehaviour
 {
     public UnityEvent sprintActivated;
 
+    private EyeTracking eyeTracking;
+
+    private void OnEnable()
+    {
+        eyeTracking = GetComponentInChildren<EyeTracking>();  
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 7)
@@ -16,6 +23,7 @@ public class Sprint : MonoBehaviour
                     player.sprintNowActive(); 
                     PowerUpController HUD = other.GetComponentInChildren<PowerUpController>();
                     HUD.haveSprint();
+                    eyeTracking.enabled = false;
                     this.gameObject.SetActive(false);
                 }
             }

@@ -18,7 +18,6 @@ public class Healthbar : MonoBehaviour
 
     private void Update()
     {
-        // Debug.Log(healthbar.resolvedStyle.width);
         if(healthbar.resolvedStyle.width >= 0 && !baseHPFound)
         {
             baseHPFound = true;
