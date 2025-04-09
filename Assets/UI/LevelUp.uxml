@@ -1,0 +1,12 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/LevelUpStyle.uss?fileID=7433441132597879392&amp;guid=5b4317a27847a044a9b45c1d24b4921d&amp;type=3#LevelUpStyle" />
+    <engine:VisualElement name="Container" style="flex-grow: 1;">
+        <engine:Label text="Leveled Up" name="LevelUpText" class="header" style="font-size: 180px;" />
+        <engine:VisualElement name="ButtonContainer" style="flex-grow: 1; flex-direction: row;">
+            <engine:Button text="Button" class="buttons" style="max-width: 21%; width: 21%;" />
+            <engine:Button text="Button" class="buttons" />
+            <engine:Button text="Button" class="buttons" />
+            <engine:Button text="Button" class="buttons" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
