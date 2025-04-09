@@ -182,7 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1571465187565587881}
   - component: {fileID: 2896393970868581024}
-  - component: {fileID: 4994032238028548789}
+  - component: {fileID: 7480241082990832577}
   m_Layer: 9
   m_Name: Eyes
   m_TagString: Untagged
@@ -219,8 +219,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7c157803419564b988e511e905193f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &4994032238028548789
-BoxCollider:
+  rotationSpeed: 0.1
+  target: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}
+--- !u!135 &7480241082990832577
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -238,8 +241,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 20, y: 8, z: 20}
-  m_Center: {x: 0, y: 2.5, z: 0}
+  m_Radius: 50
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5224442709848622204
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,3 +381,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7c157803419564b988e511e905193f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 0.1
+  target: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}

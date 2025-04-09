@@ -3,14 +3,10 @@ using UnityEngine;
 
 public class EyeTracking : MonoBehaviour
 {
-    private BoxCollider activeRange;
-    private Transform target = null;
-    private Vector3 direction;
+    public float rotationSpeed = 0.1f;
 
-    private void OnEnable()
-    {
-        activeRange = GetComponent<BoxCollider>();
-    }
+    public Transform target = null;
+    public Vector3 direction;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -37,6 +33,7 @@ public class EyeTracking : MonoBehaviour
             direction = target.position - transform.position;
             direction.y += 1;
             transform.rotation = Quaternion.LookRotation(direction);
+
             yield return new WaitForEndOfFrame();
         }
     }
