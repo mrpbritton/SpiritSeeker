@@ -27,6 +27,12 @@ public class XPBar : MonoBehaviour
             xPBarWidth = experienceBar.resolvedStyle.width;
             UpdateXPBar(0, maxXp);
         }
+
+        if (currentXp >= maxXp)
+        {
+            UpdateXPBar(0, maxXp);
+            currentXp = 0;
+        }
     }
 
     public void XPGained(float amount)

@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 public class PauseButtons : MonoBehaviour
 {
     public string MainMenuScene;
+    public HUDDeactivate hud;
 
     private UIDocument pauseDocument;
     private VisualElement pauseDisplay;
@@ -41,6 +42,7 @@ public class PauseButtons : MonoBehaviour
     private void PauseGame(InputAction.CallbackContext ctx)
     {
         pauseDisplay.style.display = DisplayStyle.Flex;
+        hud.DeactivateHUD();
         Time.timeScale = 0.0f;
 
         UnityEngine.Cursor.lockState = CursorLockMode.None;
@@ -51,6 +53,7 @@ public class PauseButtons : MonoBehaviour
     {
         Debug.Log("Resume");
         pauseDisplay.style.display = DisplayStyle.None;
+        hud.ReactivateHUD();
         Time.timeScale = 1.0f;
 
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
