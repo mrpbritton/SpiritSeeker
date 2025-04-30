@@ -1,12 +1,13 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/LevelUpStyle.uss?fileID=7433441132597879392&amp;guid=5b4317a27847a044a9b45c1d24b4921d&amp;type=3#LevelUpStyle" />
-    <engine:VisualElement name="Container" style="flex-grow: 1;">
-        <engine:Label text="Leveled Up" name="LevelUpText" class="header" style="font-size: 180px;" />
-        <engine:VisualElement name="ButtonContainer" style="flex-grow: 1; flex-direction: row;">
-            <engine:Button text="Button" class="buttons" style="max-width: 21%; width: 21%;" />
-            <engine:Button text="Button" class="buttons" />
-            <engine:Button text="Button" class="buttons" />
-            <engine:Button text="Button" class="buttons" />
+    <engine:VisualElement name="Container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.67);">
+        <engine:Label text="Leveled Up" name="LeveledUpText" class="header" style="font-size: 180px;" />
+        <engine:VisualElement name="ButtonContainer" style="flex-grow: 1; flex-direction: row; height: 50%; max-height: 50%;">
+            <engine:Button text="Speed" name="Speed" class="buttons" style="max-width: 21%; width: 21%; background-color: rgb(255, 170, 0); border-left-color: rgb(144, 96, 0); border-right-color: rgb(144, 96, 0); border-top-color: rgb(144, 96, 0); border-bottom-color: rgb(144, 96, 0);" />
+            <engine:Button text="Jump&#10;Height" name="JumpHeight" class="buttons" style="background-color: rgb(255, 239, 0); border-left-color: rgb(142, 133, 0); border-right-color: rgb(142, 133, 0); border-top-color: rgb(142, 133, 0); border-bottom-color: rgb(142, 133, 0);" />
+            <engine:Button text="Damage" name="Damage" class="buttons" style="background-color: rgb(255, 57, 57); border-left-color: rgb(115, 30, 30); border-right-color: rgb(115, 30, 30); border-top-color: rgb(115, 30, 30); border-bottom-color: rgb(115, 30, 30);" />
+            <engine:Button text="Healing" name="Regeneration" emoji-fallback-support="false" class="buttons" style="white-space: normal; background-color: rgb(57, 255, 0); border-left-color: rgb(25, 111, 0); border-right-color: rgb(25, 111, 0); border-top-color: rgb(25, 111, 0); border-bottom-color: rgb(25, 111, 0);" />
         </engine:VisualElement>
+        <engine:Label text="Choose your boon" name="ChooseText" class="header" style="font-size: 125px;" />
     </engine:VisualElement>
 </engine:UXML>

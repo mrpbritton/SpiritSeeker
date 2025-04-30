@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyAim : MonoBehaviour
 {
-    public Transform target;
     public Transform boltSpawnPoint;
     public float fireRate = 1;
     public float boltSpeed = 5;
@@ -12,14 +11,20 @@ public class EnemyAim : MonoBehaviour
     public float boltsHeld = 5;
     public GameObject boltPrefab;
 
+    private Transform target;
     private Vector3 distanceToPlayer;
     private float distanceCondensed;
     private List<Bolt> bolts = new List<Bolt>();
     private bool inRange = false;
     private bool closeRange = false;
+    private BasicEnemyMovement movementScript;
 
     private void OnEnable()
     {
+        // Use the same target for aiming as moving
+        movementScript = GetComponent<BasicEnemyMovement>();
+        target = movementScript.target;
+
         StartCoroutine(nameof(Aiming));
         StartCoroutine(nameof(Shooting));
 

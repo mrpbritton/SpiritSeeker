@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class PlayerMove : MonoBehaviour
 {
     public Transform cameraTransform;
-    public float movementSpeed = 5f;
+    public float defaultMovementSpeed = 5f;
     public float rotationSpeed = 10f;
     public float gravity = -9.81f;
     public float jumpHeight = 10f;
@@ -20,28 +20,34 @@ public class PlayerMove : MonoBehaviour
     public bool canSprint = false;
     public bool knockbackApplied = false;
 
+    private float currentMoveSpeed;
     private Animator playerAnimator;
     private Vector3 moveDirection;
     private Vector3 downForce;
-    private bool isGrounded = true;
+    public bool isGrounded = true;
     private bool canAttack = true;
 
     private void OnEnable()
     {
+        // Enable the player's controls
         controls = new Controls();
         controls.Enable();
 
+        // Get the character controller and animator
         playerCC = GetComponent<CharacterController>();
         playerAnimator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
     {
+        // isGrounded Debug Ray
         // Debug.DrawRay(transform.position + new Vector3(0, 0.1f, 0), new Vector3(0, -1, 0), Color.red, groundCheckRaySize);
 
         // Read the direction of the movement input
         Vector2 inputDirection = controls.Player.Move.ReadValue<Vector2>().normalized;
 
+
+        // Allows for diagonal movement
         Vector3 directionalModifier = new Vector3(0, 0, 0);
 
         if(inputDirection.y < 1 && inputDirection.y > 0)
@@ -53,15 +59,16 @@ public class PlayerMove : MonoBehaviour
             directionalModifier = -transform.forward;
         }
 
+
         //Sprint
         if (controls.Player.Sprint.IsPressed() && canSprint)
         {
             StartCoroutine(nameof(SprintCD));
-            movementSpeed = 10f;
+            currentMoveSpeed = defaultMovementSpeed * 2f;
         }
         else
         {
-            movementSpeed = 5f;
+            currentMoveSpeed = defaultMovementSpeed;
         }
 
         // Move forward
@@ -94,11 +101,17 @@ public class PlayerMove : MonoBehaviour
             MoveAndAnimate("Idle", Vector3.zero);
         }
 
+        // Normalize movement to avoid diagonal speed boosting
+        moveDirection = moveDirection.normalized;
+        
+        // Limit horizontal movement if airborne
+        if (!isGrounded)
+        {
+            moveDirection = new Vector3(moveDirection.x * 0.75f, moveDirection.y, moveDirection.z * 0.75f);
+        }
+
         // Apply movement
-        Vector3 convertToLocalTransform = new Vector3(-inputDirection.y, 0, inputDirection.x);
-        //convertToLocalTransform = modelTransform.TransformPoint(convertToLocalTransform).normalized;
-        //Debug.Log($"{inputDirection} | {convertToLocalTransform}");
-        playerCC.Move(moveDirection * Time.deltaTime * movementSpeed);
+        playerCC.Move(moveDirection * Time.deltaTime * currentMoveSpeed);
         
         // Keep downForce at 0 because otherwise you're accumulating a downForce.y that the jumpHeight can't overcome
         if(isGrounded && downForce.y < 0)
@@ -128,7 +141,10 @@ public class PlayerMove : MonoBehaviour
 
         if (Physics.Raycast(transform.position + new Vector3(0, 0.1f, 0), new Vector3(0, -1, 0), out hit, groundCheckRaySize))
         {
-            isGrounded = true;
+            if(hit.collider.gameObject.layer == 6)
+            {
+                isGrounded = true;
+            }
         }
         else
         {

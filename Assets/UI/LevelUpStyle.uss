@@ -4,16 +4,16 @@
     -unity-font-definition: url("project://database/Assets/UI/Fonts/GothicBlastDemo-xRRLR.ttf?fileID=12800000&guid=e809aa247bc7dcd43aa823516a7219f5&type=3#GothicBlastDemo-xRRLR");
     background-color: rgba(0, 0, 0, 0);
     color: rgb(255, 255, 255);
-    width: 80%;
-    height: 15%;
+    width: auto;
+    height: auto;
     align-self: center;
 }
 
 .buttons {
     width: 21%;
     max-width: 21%;
-    max-height: 50%;
-    height: 50%;
+    max-height: 80%;
+    height: 80%;
     justify-content: flex-start;
     align-items: auto;
     align-self: center;
@@ -21,4 +21,22 @@
     margin-right: 2%;
     margin-bottom: 2%;
     margin-left: 2%;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/GothicBlastDemo-xRRLR.ttf?fileID=12800000&guid=e809aa247bc7dcd43aa823516a7219f5&type=3#GothicBlastDemo-xRRLR");
+    font-size: 65px;
+    border-left-color: rgb(65, 65, 65);
+    border-right-color: rgb(65, 65, 65);
+    border-top-color: rgb(65, 65, 65);
+    border-bottom-color: rgb(65, 65, 65);
+    border-top-width: 10px;
+    border-right-width: 10px;
+    border-bottom-width: 10px;
+    border-left-width: 10px;
+}
+
+.buttons:hover {
+    transition-property: all;
+    transition-duration: 0.4s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    scale: 1.15 1.15;
 }
