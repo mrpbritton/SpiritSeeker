@@ -34,9 +34,16 @@ public class PauseButtons : MonoBehaviour
         restartButton = pauseDocument.rootVisualElement.Q("Restart") as Button;
         mainMenuButton = pauseDocument.rootVisualElement.Q("MainMenu") as Button;
 
-        resumeButton.clicked += () => { ResumeGame(); };
-        restartButton.clicked += () => { RestartGame(); };
-        mainMenuButton.clicked += () => { LoadMainMenu(); };
+        resumeButton.RegisterCallback<NavigationSubmitEvent>(ResumeGame);
+        restartButton.RegisterCallback<NavigationSubmitEvent>(RestartGame);
+        mainMenuButton.RegisterCallback<NavigationSubmitEvent>(LoadMainMenu);
+    }
+    private void OnDisable()
+    {
+        controls.Disable();
+        resumeButton.UnregisterCallback<NavigationSubmitEvent>(ResumeGame);
+        restartButton.UnregisterCallback<NavigationSubmitEvent>(RestartGame);
+        mainMenuButton.UnregisterCallback<NavigationSubmitEvent>(LoadMainMenu);
     }
 
     private void PauseGame(InputAction.CallbackContext ctx)
@@ -49,9 +56,8 @@ public class PauseButtons : MonoBehaviour
         UnityEngine.Cursor.visible = true;
     }
 
-    private void ResumeGame()
+    private void ResumeGame(NavigationSubmitEvent evt)
     {
-        Debug.Log("Resume");
         pauseDisplay.style.display = DisplayStyle.None;
         hud.ReactivateHUD();
         Time.timeScale = 1.0f;
@@ -59,7 +65,8 @@ public class PauseButtons : MonoBehaviour
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         UnityEngine.Cursor.visible = false;
     }
-    private void RestartGame()
+
+    private void RestartGame(NavigationSubmitEvent evt)
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1.0f;
@@ -67,14 +74,11 @@ public class PauseButtons : MonoBehaviour
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         UnityEngine.Cursor.visible = false;
     }
-    private void LoadMainMenu()
+
+    private void LoadMainMenu(NavigationSubmitEvent evt)
     {
         Debug.Log("LoadMainMenu");
         SceneManager.LoadScene(MainMenuScene);
-    }
-    private void OnDisable()
-    {
-        controls.Disable();
     }
 
     public void Deactivate()

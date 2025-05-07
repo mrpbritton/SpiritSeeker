@@ -30,10 +30,6 @@ public class EnemyHP : MonoBehaviour
             canTakeDamage = false;
             StartCoroutine(nameof(DamageCD));
             StartCoroutine(nameof(DamagedVisual));
-            /* if(currentHP <= criticalHP)
-            {
-                mRenderer.material = lowHealthMaterial;
-            } */
             if (currentHP <= 0)
             {
                 EnemyDeath.Invoke();

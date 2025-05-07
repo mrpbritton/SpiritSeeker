@@ -39,3 +39,12 @@
     -unity-font-definition: url("project://database/Assets/UI/Fonts/GothicBlastDemo-xRRLR.ttf?fileID=12800000&guid=e809aa247bc7dcd43aa823516a7219f5&type=3#GothicBlastDemo-xRRLR");
     font-size: 1000%;
 }
+
+.button:focus {
+    background-color: rgb(142, 142, 142);
+    border-left-color: rgb(72, 72, 72);
+    border-right-color: rgb(72, 72, 72);
+    border-top-color: rgb(72, 72, 72);
+    border-bottom-color: rgb(72, 72, 72);
+    scale: 1.1 1.1;
+}

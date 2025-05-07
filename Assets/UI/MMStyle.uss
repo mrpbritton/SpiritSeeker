@@ -32,3 +32,12 @@
     border-bottom-color: rgb(72, 72, 72);
     scale: 1.1 1.1;
 }
+
+.button:focus {
+    background-color: rgb(142, 142, 142);
+    border-left-color: rgb(72, 72, 72);
+    border-right-color: rgb(72, 72, 72);
+    border-top-color: rgb(72, 72, 72);
+    border-bottom-color: rgb(72, 72, 72);
+    scale: 1.1 1.1;
+}

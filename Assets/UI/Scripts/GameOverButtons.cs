@@ -21,8 +21,14 @@ public class GameOverButtons : MonoBehaviour
         restartButton = gameOverDocument.rootVisualElement.Q("Restart") as Button;
         mainMenuButton = gameOverDocument.rootVisualElement.Q("MainMenu") as Button;
 
-        restartButton.clicked += () => { RestartGame(); };
-        mainMenuButton.clicked += () => { LoadMainMenu(); };
+        restartButton.RegisterCallback<NavigationSubmitEvent>(RestartGame);
+        mainMenuButton.RegisterCallback<NavigationSubmitEvent>(LoadMainMenu);
+    }
+
+    private void OnDisable()
+    {
+        restartButton.UnregisterCallback<NavigationSubmitEvent>(RestartGame);
+        mainMenuButton.UnregisterCallback<NavigationSubmitEvent>(LoadMainMenu);
     }
 
     public void Activate()
@@ -33,7 +39,7 @@ public class GameOverButtons : MonoBehaviour
         UnityEngine.Cursor.visible = true;
     }
 
-    private void RestartGame()
+    private void RestartGame(NavigationSubmitEvent evt)
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1.0f;
@@ -41,7 +47,8 @@ public class GameOverButtons : MonoBehaviour
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         UnityEngine.Cursor.visible = false;
     }
-    private void LoadMainMenu()
+
+    private void LoadMainMenu(NavigationSubmitEvent evt)
     {
         SceneManager.LoadScene(MainMenuScene);
     }

@@ -31,10 +31,10 @@ public class LevelUpButtons : MonoBehaviour
         damage = levelUpDoc.rootVisualElement.Q("Damage") as Button;
         health = levelUpDoc.rootVisualElement.Q("Regeneration") as Button;
 
-        speed.RegisterCallback<ClickEvent>(IncreaseSpeed);
-        jumpHeight.RegisterCallback<ClickEvent>(IncreaseJumpHeight);
-        damage.RegisterCallback<ClickEvent>(IncreaseDamage);
-        health.RegisterCallback<ClickEvent>(IncreaseRegeneration);
+        speed.RegisterCallback<NavigationSubmitEvent>(IncreaseSpeed);
+        jumpHeight.RegisterCallback<NavigationSubmitEvent>(IncreaseJumpHeight);
+        damage.RegisterCallback<NavigationSubmitEvent>(IncreaseDamage);
+        health.RegisterCallback<NavigationSubmitEvent>(IncreaseRegeneration);
 
         levelUpContainer.style.display = DisplayStyle.None;
 
@@ -45,10 +45,10 @@ public class LevelUpButtons : MonoBehaviour
 
     private void OnDisable()
     {
-        speed.UnregisterCallback<ClickEvent>(IncreaseSpeed);
-        jumpHeight.UnregisterCallback<ClickEvent>(IncreaseJumpHeight);
-        damage.UnregisterCallback<ClickEvent>(IncreaseDamage);
-        health.UnregisterCallback<ClickEvent>(IncreaseRegeneration);
+        speed.UnregisterCallback<NavigationSubmitEvent>(IncreaseSpeed);
+        jumpHeight.UnregisterCallback<NavigationSubmitEvent>(IncreaseJumpHeight);
+        damage.UnregisterCallback<NavigationSubmitEvent>(IncreaseDamage);
+        health.UnregisterCallback<NavigationSubmitEvent>(IncreaseRegeneration);
     }
 
     public void Activate()
@@ -58,7 +58,7 @@ public class LevelUpButtons : MonoBehaviour
         levelUpContainer.style.display = DisplayStyle.Flex;
     }
 
-    private void IncreaseSpeed(ClickEvent evt)
+    private void IncreaseSpeed(NavigationSubmitEvent evt)
     {
         movementStats.defaultMovementSpeed += speedIncreaseAmount;
         speedIncreaseAmount = speedIncreaseAmount - (speedIncreaseAmount / 5);
@@ -69,7 +69,7 @@ public class LevelUpButtons : MonoBehaviour
         Hud.ReactivateHUD();
     }
 
-    private void IncreaseJumpHeight(ClickEvent evt)
+    private void IncreaseJumpHeight(NavigationSubmitEvent evt)
     {
         movementStats.jumpHeight += jumpIncreaseAmount;
         jumpIncreaseAmount = jumpIncreaseAmount - (jumpIncreaseAmount / 5);
@@ -80,7 +80,7 @@ public class LevelUpButtons : MonoBehaviour
         Hud.ReactivateHUD();
     }
 
-    private void IncreaseDamage(ClickEvent evt)
+    private void IncreaseDamage(NavigationSubmitEvent evt)
     {
         foreach (PlayerSwords sword in combatStats.swordArray)
         {
@@ -94,7 +94,7 @@ public class LevelUpButtons : MonoBehaviour
         Hud.ReactivateHUD();
     }
 
-    private void IncreaseRegeneration(ClickEvent evt)
+    private void IncreaseRegeneration(NavigationSubmitEvent evt)
     {
         healthStats.regenAmount += regenIncreaseAmount;
         regenIncreaseAmount = regenIncreaseAmount - (regenIncreaseAmount / 5);
