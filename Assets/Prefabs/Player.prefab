@@ -141,11 +141,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 2609251998182506997}
-  defaultMovementSpeed: 5
+  defaultMovementSpeed: 6.5
   rotationSpeed: 10
   gravity: -9.8
   jumpHeight: 1
-  groundCheckRaySize: 0.1
+  groundCheckRaySize: 0.2
   powerUpController: {fileID: 6419948829477894153}
   modelTransform: {fileID: 6055608375153639642}
   playerCC: {fileID: 7027261921414170514}
@@ -276,6 +276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5182622113258732341}
   - component: {fileID: 6645952979357993669}
+  - component: {fileID: 6735783252618747623}
   m_Layer: 5
   m_Name: LevelUpScreen
   m_TagString: Untagged
@@ -317,6 +318,23 @@ MonoBehaviour:
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
+--- !u!114 &6735783252618747623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5673548845805850863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3efcb1756d6a4544a83e44e36174f75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hud: {fileID: 5017574887942875306}
+  speedIncreaseAmount: 1
+  jumpIncreaseAmount: 1
+  damageIncreaseAmount: 1
+  regenIncreaseAmount: 1
 --- !u!1 &5975840327683242531
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca27177bc65f7a45a5057664ff86356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelUpScreen: {fileID: 0}
+  levelUpScreen: {fileID: 6735783252618747623}
   XPFill: 0
   maxXp: 100
 --- !u!114 &5017574887942875306
@@ -454,8 +472,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8519303785059110304}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22360681, y: -0.6708205, z: 0.22360685, w: 0.67082036}
-  m_LocalPosition: {x: 3.1769998, y: 3.9029999, z: -0.00000017881393}
+  m_LocalRotation: {x: 0.3162278, y: 0.00000059327164, z: -0.00000018722051, w: 0.9486833}
+  m_LocalPosition: {x: 0.17699315, y: 3.903, z: -3.0000007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1225,8 +1243,28 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4957605393579145646, guid: 4f46098734d87e24490aef9267915ad2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8098382405531638735}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4957605393579145644, guid: 4f46098734d87e24490aef9267915ad2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3341369906178664672}
   m_SourcePrefab: {fileID: 100100000, guid: 4f46098734d87e24490aef9267915ad2, type: 3}
+--- !u!1 &6055608375153639640 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4957605393579145644, guid: 4f46098734d87e24490aef9267915ad2, type: 3}
+  m_PrefabInstance: {fileID: 1208412127588628852}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3341369906178664672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055608375153639640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ea043e71be13ab448fb753b975468c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6055608375153639642 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4957605393579145646, guid: 4f46098734d87e24490aef9267915ad2, type: 3}
