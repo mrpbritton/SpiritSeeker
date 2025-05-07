@@ -46,17 +46,23 @@ public class PlayerMove : MonoBehaviour
         // Read the direction of the movement input
         Vector2 inputDirection = controls.Player.Move.ReadValue<Vector2>().normalized;
 
+        Debug.Log(inputDirection.x + "," + inputDirection.y);
 
-        // Allows for diagonal movement
+        // Allows for diagonal movement if player is going sideways
         Vector3 directionalModifier = new Vector3(0, 0, 0);
-
-        if(inputDirection.y < 1 && inputDirection.y > 0)
+        if ((inputDirection.x < 0.95f && inputDirection.x > 0.05f) || (inputDirection.x > -0.95f && inputDirection.x < -0.05f))
         {
-            directionalModifier = transform.forward;
-        }
-        else if (inputDirection.y > -1 && inputDirection.y < 0)
-        {
-            directionalModifier = -transform.forward;
+            Debug.Log("Diagonal functionality triggered");
+            if (inputDirection.y < 1 && inputDirection.y > 0)
+            {
+                directionalModifier = transform.forward;
+                Debug.Log("Diagonal forward");
+            }
+            else if (inputDirection.y > -1 && inputDirection.y < 0)
+            {
+                directionalModifier = -transform.forward;
+                Debug.Log("Diagonal backward");
+            }
         }
 
 
@@ -71,34 +77,30 @@ public class PlayerMove : MonoBehaviour
             currentMoveSpeed = defaultMovementSpeed;
         }
 
+        // Not walking
+        if (inputDirection == Vector2.zero && canAttack)
+        {
+            MoveAndAnimate("Idle", Vector3.zero);
+        }
         // Move forward
-        if (inputDirection.y == 1)
+        else if (inputDirection.y > 0.71f && inputDirection.y <= 1f)
         {
             MoveAndAnimate("WalkForward", transform.forward);
         }
-
-        // Move backwards
-        if(inputDirection.y == -1)
+        // Move back
+        else if (inputDirection.y < -0.71f && inputDirection.y >= -1f)
         {
             MoveAndAnimate("WalkBackward", -transform.forward);
         }
-
         // Move right
-        if(inputDirection.x > 0)
+        else if (inputDirection.x > 0)
         {
             MoveAndAnimate("StrafeRight", transform.right + directionalModifier);
         }
-
         // Move left
-        if(inputDirection.x < 0)
+        else if (inputDirection.x < 0)
         {
             MoveAndAnimate("StrafeLeft", -transform.right + directionalModifier);
-        }
-
-        // Not walking
-        if(inputDirection == Vector2.zero && canAttack)
-        {
-            MoveAndAnimate("Idle", Vector3.zero);
         }
 
         // Normalize movement to avoid diagonal speed boosting
@@ -130,9 +132,9 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
+        // Gravity application
         downForce.y += gravity * Time.deltaTime;
         playerCC.Move(downForce * Time.deltaTime);
-    
     }
 
     private void FixedUpdate()
