@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -8,6 +9,9 @@ public class PowerUpController : MonoBehaviour
     private VisualElement doubleJump;
     private VisualElement sprint;
     private VisualElement damage;
+
+    private VisualElement sprintCooldownVisual;
+    private VisualElement attackCooldownVisual;
 
     private void OnEnable()
     {
@@ -48,5 +52,13 @@ public class PowerUpController : MonoBehaviour
     public void usedDamage()
     {
         damage.style.display = DisplayStyle.None;
+    }
+
+    private IEnumerator VisualSprintCooldown()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.25f);
+        }
     }
 }
