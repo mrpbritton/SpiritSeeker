@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 1248543107346259246}
   - component: {fileID: 1796390903453053791}
   - component: {fileID: 4821697987856527896}
+  - component: {fileID: 1524011286515739773}
   m_Layer: 6
   m_Name: Wall
   m_TagString: Untagged
@@ -282,17 +283,9 @@ MonoBehaviour:
   m_Mesh: {fileID: 0}
   m_VersionIndex: 2116
   m_IsSelectable: 1
-  m_SelectedFaces: 04000000
-  m_SelectedEdges:
-  - a: 16
-    b: 17
-  - a: 18
-    b: 16
-  - a: 17
-    b: 19
-  - a: 19
-    b: 18
-  m_SelectedVertices: 10000000110000001200000013000000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!23 &1248543107346259246
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -368,6 +361,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!208 &1524011286515739773
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6814479959740189596}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 10, z: 5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 9.5, z: 5}
+  m_TimeToStationary: 0.5
 --- !u!1 &7809554660981051214
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,6 +390,7 @@ GameObject:
   - component: {fileID: 8598847942342472066}
   - component: {fileID: 1936579232141870294}
   - component: {fileID: 5028745085427728345}
+  - component: {fileID: 1871069501682530442}
   m_Layer: 6
   m_Name: Wall (1)
   m_TagString: Untagged
@@ -617,17 +627,9 @@ MonoBehaviour:
   m_Mesh: {fileID: 0}
   m_VersionIndex: 2256
   m_IsSelectable: 1
-  m_SelectedFaces: 04000000
-  m_SelectedEdges:
-  - a: 16
-    b: 17
-  - a: 18
-    b: 16
-  - a: 17
-    b: 19
-  - a: 19
-    b: 18
-  m_SelectedVertices: 10000000110000001200000013000000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!23 &8598847942342472066
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -703,3 +705,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!208 &1871069501682530442
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7809554660981051214}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 10, z: 4.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 9.5, z: 5}
+  m_TimeToStationary: 0.5

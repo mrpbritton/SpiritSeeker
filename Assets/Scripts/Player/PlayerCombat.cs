@@ -55,7 +55,15 @@ public class PlayerCombat : MonoBehaviour
         {
             sword.damage = sword.damage * damageBuffMultiplier;
         }
-        StartCoroutine(nameof(BuffCD));
+        powerUpController.beginDamage();
+    }
+
+    public void endDamageBoost()
+    {
+        foreach (PlayerSwords sword in swordArray)
+        {
+            sword.damage = sword.damage / damageBuffMultiplier;
+        }
     }
 
     public IEnumerator AttackCD(float attackLength)
@@ -69,20 +77,6 @@ public class PlayerCombat : MonoBehaviour
             foreach (PlayerSwords sword in swordArray)
             {
                 sword.canDamage = false;
-            }
-        }
-    }
-    public IEnumerator BuffCD()
-    {
-        while (buffed)
-        {
-            yield return new WaitForSeconds(5);
-            buffed = false;
-            powerUpController.usedDamage();
-            StopCoroutine(nameof(BuffCD));
-            foreach (PlayerSwords sword in swordArray)
-            {
-                sword.damage = sword.damage / damageBuffMultiplier;
             }
         }
     }

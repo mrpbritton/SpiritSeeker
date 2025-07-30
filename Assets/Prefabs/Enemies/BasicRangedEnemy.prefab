@@ -68,7 +68,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7073257af5bb9664bbfc71ea514868b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   boltSpawnPoint: {fileID: 4296063620828370267}
   fireRate: 1
   boltSpeed: 10
@@ -91,6 +90,7 @@ MonoBehaviour:
   criticalHP: 3
   lowHealthMaterial: {fileID: 2100000, guid: 5355072b7f4448b4fb8462fff6df986e, type: 2}
   baseMaterial: {fileID: 2100000, guid: 70d17a177d5d74248bd997a8284c7471, type: 2}
+  xpDrop: {fileID: 1636697723289175163, guid: f4babcf619206434884abe8d43bafeb2, type: 3}
   EnemyDeath:
     m_PersistentCalls:
       m_Calls:

@@ -31,7 +31,7 @@ public class EnemyAim : MonoBehaviour
         // Instantiate the bolts
         for (int i = 0; i < boltsHeld; i++)
         {
-            // A bullet gets instantiated and added to the list of bullets
+            // A bolt gets instantiated and added to the list of bolts
             bolts.Add(Instantiate(boltPrefab).GetComponent<Bolt>());
         }
 

@@ -23,10 +23,20 @@ public class Sprint : MonoBehaviour
                     player.sprintNowActive(); 
                     PowerUpController HUD = other.GetComponentInChildren<PowerUpController>();
                     HUD.haveSprint();
-                    eyeTracking.enabled = false;
-                    this.gameObject.SetActive(false);
+                    DeactivateSelf();
+                }
+                if(player.canSprint == true)
+                {
+                    player.powerUpController.sprintCurrentCDTime += player.powerUpController.sprintCooldownSeconds;
+                    DeactivateSelf();
                 }
             }
         }
+    }
+
+    private void DeactivateSelf()
+    {
+        eyeTracking.enabled = false;
+        this.gameObject.SetActive(false);
     }
 }

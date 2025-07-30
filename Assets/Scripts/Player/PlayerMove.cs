@@ -19,6 +19,7 @@ public class PlayerMove : MonoBehaviour
     public bool canDoubleJump = false;
     public bool canSprint = false;
     public bool knockbackApplied = false;
+    public int doubleJumpStacks = 0;
 
     private float currentMoveSpeed;
     private Animator playerAnimator;
@@ -64,7 +65,7 @@ public class PlayerMove : MonoBehaviour
         //Sprint
         if (controls.Player.Sprint.IsPressed() && canSprint)
         {
-            StartCoroutine(nameof(SprintCD));
+            powerUpController.beginSprint();
             currentMoveSpeed = defaultMovementSpeed * 2f;
         }
         else
@@ -122,8 +123,13 @@ public class PlayerMove : MonoBehaviour
             downForce.y += Mathf.Sqrt(jumpHeight * -2.0f * gravity);
             if(isGrounded == false && canDoubleJump == true)
             {
-                canDoubleJump = false;
-                powerUpController.usedDoubleJump();
+                doubleJumpStacks--;
+                powerUpController.updateDoubleJumpStacks(doubleJumpStacks);
+                if(doubleJumpStacks == 0)
+                {
+                    canDoubleJump = false;
+                    powerUpController.usedDoubleJump();
+                }
             }
         }
 
@@ -170,7 +176,12 @@ public class PlayerMove : MonoBehaviour
 
     public void doubleJumpNowActive()
     {
-        canDoubleJump = true;
+        if(!canDoubleJump)
+        {
+            canDoubleJump = true;
+        }
+        doubleJumpStacks++;
+        powerUpController.updateDoubleJumpStacks(doubleJumpStacks);
     }
 
     public void sprintNowActive()
@@ -178,16 +189,6 @@ public class PlayerMove : MonoBehaviour
         canSprint = true;
     }
 
-    public IEnumerator SprintCD()
-    {
-        while (canSprint)
-        {
-            yield return new WaitForSeconds(10);
-            canSprint = false;
-            powerUpController.usedSprint();
-            StopCoroutine(nameof(SprintCD));
-        }
-    }
     public IEnumerator AttackCD()
     {
         while (!canAttack)

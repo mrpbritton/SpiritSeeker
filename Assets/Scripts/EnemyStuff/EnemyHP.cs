@@ -8,6 +8,7 @@ public class EnemyHP : MonoBehaviour
     public float criticalHP = 3;
     public Material lowHealthMaterial;
     public Material baseMaterial;
+    public GameObject xpDrop;
 
     public UnityEvent EnemyDeath;
 
@@ -39,6 +40,7 @@ public class EnemyHP : MonoBehaviour
 
     public void Die()
     {
+        Instantiate(xpDrop, transform.position, transform.rotation);
         this.gameObject.SetActive(false);
     }
 

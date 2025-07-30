@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class BasicEnemyMovement : MonoBehaviour
 {
     public Transform target;
-    public float detectionDistance = 100;
+    public float detectionDistance = 10;
 
     private NavMeshAgent thisEnemy;
     private Vector3 distanceToPlayer;
@@ -19,10 +19,15 @@ public class BasicEnemyMovement : MonoBehaviour
         thisEnemy = GetComponent<NavMeshAgent>();
     }
 
+    private void OnEnable()
+    {
+        target = GameObject.FindWithTag("Player").transform;
+    }
+
     private void Update()
     {
         distanceToPlayer = transform.position - target.position;
-        distanceCondensed = Mathf.Abs(distanceToPlayer.x) + Mathf.Abs(distanceToPlayer.z);
+        distanceCondensed = Mathf.Sqrt((Mathf.Abs(distanceToPlayer.x) * Mathf.Abs(distanceToPlayer.x)) + (Mathf.Abs(distanceToPlayer.z) * Mathf.Abs(distanceToPlayer.z)));
 
         if (distanceCondensed <= detectionDistance)
         {

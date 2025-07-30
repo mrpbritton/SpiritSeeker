@@ -6,6 +6,8 @@ TagManager:
   tags:
   - healthVolume
   - HUD
+  - WinScreen
+  - Goal
   layers:
   - Default
   - TransparentFX

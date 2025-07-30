@@ -19,8 +19,8 @@ public class PowerUpGenerator : MonoBehaviour
         {
             for(int j = 0; j < zTiles; j++)
             {
-                int random = Random.Range(1, 5);
-                switch (random){
+                int random = Random.Range(0, powerUps.Length);
+                /* switch (random){
                     case 1:
                         Instantiate(powerUps[0], new Vector3(transform.position.x + (i * 10), 1, transform.position.z + (j * 10)), transform.rotation, this.gameObject.transform);
                         break;
@@ -34,7 +34,8 @@ public class PowerUpGenerator : MonoBehaviour
                         Instantiate(powerUps[3], new Vector3(transform.position.x + (i * 10), 1, transform.position.z + (j * 10)), transform.rotation, this.gameObject.transform);
                         break;
                     default: break;
-                }
+                } */
+                Instantiate(powerUps[random], new Vector3(transform.position.x + (i * 10), 1, transform.position.z + (j * 10)), transform.rotation, this.gameObject.transform);
             }
         }
     }

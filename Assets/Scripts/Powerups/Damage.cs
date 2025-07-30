@@ -22,10 +22,19 @@ public class Damage : MonoBehaviour
                     player.DamageBoost(); 
                     PowerUpController HUD = other.GetComponentInChildren<PowerUpController>();
                     HUD.haveDamage();
-                    eyeTracking.enabled = false;
-                    this.gameObject.SetActive(false);
+                    DeactivateSelf();
+                }
+                if (player.buffed == true)
+                {
+                    player.powerUpController.damageCurrentCDTime += player.powerUpController.damageCooldownSeconds;
+                    DeactivateSelf();
                 }
             }
         }
+    }
+    private void DeactivateSelf()
+    {
+        eyeTracking.enabled = false;
+        this.gameObject.SetActive(false);
     }
 }
