@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class NavigationArrow : MonoBehaviour
@@ -28,5 +29,10 @@ public class NavigationArrow : MonoBehaviour
                 objective = GameObject.FindWithTag("Goal");
             }
         }
+    }
+
+    private void StartNavigation()
+    {
+
     }
 }

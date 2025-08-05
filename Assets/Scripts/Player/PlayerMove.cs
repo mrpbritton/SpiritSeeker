@@ -39,6 +39,11 @@ public class PlayerMove : MonoBehaviour
         playerAnimator = GetComponentInChildren<Animator>();
     }
 
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
+
     private void Update()
     {
         // isGrounded Debug Ray
@@ -197,11 +202,6 @@ public class PlayerMove : MonoBehaviour
             canAttack = true;
             StopCoroutine(nameof(AttackCD));
         }
-    }
-
-    private void OnDisable()
-    {
-        controls.Disable();
     }
 
     public void Deactivate()
