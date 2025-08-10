@@ -5,6 +5,7 @@ public class NavigationArrow : MonoBehaviour
 {
     private GameObject objective;
     private Vector3 lookDirection;
+    private MeshRenderer meshRenderer;
 
     private void OnEnable()
     {
@@ -12,6 +13,7 @@ public class NavigationArrow : MonoBehaviour
         {
             objective = GameObject.FindWithTag("Goal");
         }
+        meshRenderer = GetComponent<MeshRenderer>();
     }
 
     private void Update()
@@ -31,8 +33,13 @@ public class NavigationArrow : MonoBehaviour
         }
     }
 
-    private void StartNavigation()
+    public void makeArrowVisible()
     {
+        meshRenderer.enabled = true;
+    }
 
+    public void makeArrowInvisible()
+    {
+        meshRenderer.enabled = false;
     }
 }

@@ -1365,7 +1365,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42613373}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
@@ -2379,7 +2379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedBakingSet: {fileID: 11400000, guid: 987ae47fc88256b4c8805261bb6de24c, type: 2}
-  sceneGUID: 7f92020925ed8504f873e2ea9218fcb0
+  sceneGUID: ae950a8f01e7cb74090733f1a51d67e6
   obsoleteAsset: {fileID: 0}
   obsoleteCellSharedDataAsset: {fileID: 0}
   obsoleteCellSupportDataAsset: {fileID: 0}
@@ -3907,25 +3907,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1594547517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35e79826e53133f46be0c23fcd83072b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ba62c4977cd4d344af82500ea69a444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xValue: 390
-  zValue: 170
-  mazePieces:
-  - {fileID: 2642964388307801707, guid: ade41ccec2a6bd24897784ff5e2a55b7, type: 3}
-  - {fileID: 4410354042691170836, guid: bb07c9a02ff61524b82fb58147d95a4d, type: 3}
-  - {fileID: 4410354042691170836, guid: 2714f66c707f29a4186d736de9be44c2, type: 3}
-  - {fileID: 4410354042691170836, guid: 64dc69a1a9cc04f4e99bbe0b8b12a168, type: 3}
-  - {fileID: 4410354042691170836, guid: f16e682290f2f014fa757751809eedc4, type: 3}
-  goalPrefab: {fileID: 7001511794983503438, guid: 7e450a103fef24b40b30d13a091141fd, type: 3}
-  enemies:
-  - {fileID: 133845959955998972, guid: b3087c1a44ad04046a695e90c3b9a080, type: 3}
-  - {fileID: 133845959955998972, guid: e99a84f2e9139c6468350846b1b46975, type: 3}
-  - {fileID: 133845959955998972, guid: c04c945f3f3aed24ba41dd17339f380e, type: 3}
-  - {fileID: 133845959955998972, guid: 873d36822ffc3d2488641bb589e41f41, type: 3}
-  - {fileID: 133845959955998972, guid: 8abf3751bd137e94b9b21e1790f775fe, type: 3}
-  spawnProbability: 20
+  width: 170
+  depth: 390
+  tileSize: 10
+  cellPrefab: {fileID: 1830845357423874032, guid: 6fe863aba42ba4d48a8bf3b5b5445f21, type: 3}
 --- !u!1 &1662916123
 GameObject:
   m_ObjectHideFlags: 0
@@ -4210,6 +4198,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3819069888822068592, guid: a3967ff6073f07646a62b98084e4407a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4778291693482574146, guid: a3967ff6073f07646a62b98084e4407a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4251,7 +4243,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1848656973
 MonoBehaviour:
   m_ObjectHideFlags: 0

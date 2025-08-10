@@ -129,6 +129,7 @@ public class PlayerMove : MonoBehaviour
             if(isGrounded == false && canDoubleJump == true)
             {
                 doubleJumpStacks--;
+                canDoubleJump = false;
                 powerUpController.updateDoubleJumpStacks(doubleJumpStacks);
                 if(doubleJumpStacks == 0)
                 {
@@ -152,6 +153,10 @@ public class PlayerMove : MonoBehaviour
             if(hit.collider.gameObject.layer == 6)
             {
                 isGrounded = true;
+                if(doubleJumpStacks > 0)
+                {
+                    canDoubleJump = true;
+                }
             }
         }
         else

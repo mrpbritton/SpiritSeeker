@@ -17,6 +17,10 @@
                     <engine:VisualElement name="Cooldown" style="flex-grow: 1; width: 0; height: 100%; position: absolute; background-color: rgba(0, 0, 0, 0.5); flex-direction: column; align-items: stretch; align-self: stretch; margin-left: 0; flex-basis: auto; background-size: 100% 100%;" />
                     <engine:VisualElement name="Icon" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/Images/Attack_Icon.png?fileID=2800000&amp;guid=bfece20b55ae0d24c8bdbbfd70b6c922&amp;type=3#Attack_Icon&quot;);" />
                 </engine:VisualElement>
+                <engine:VisualElement name="Navigation" style="flex-grow: 1; background-color: rgb(229, 0, 255); max-width: 20%; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px; flex-direction: row-reverse;">
+                    <engine:VisualElement name="Cooldown" style="flex-grow: 1; width: 0; height: 100%; position: absolute; background-color: rgba(0, 0, 0, 0.5); flex-direction: column; align-items: stretch; align-self: stretch; margin-left: 0; flex-basis: auto;" />
+                    <engine:VisualElement name="Icon" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/Images/Navigation_Icon.png?fileID=2800000&amp;guid=39f637e1ecbdbfa42acf6a41af481996&amp;type=3#Navigation_Icon&quot;); max-width: 100%; max-height: 100%; height: 100%; width: 100%; visibility: visible;" />
+                </engine:VisualElement>
             </engine:VisualElement>
         </engine:VisualElement>
         <engine:VisualElement name="Healthbar" style="flex-grow: 1; border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px; width: 100%; height: 10%; max-width: 100%; max-height: 10%; flex-direction: row;">
