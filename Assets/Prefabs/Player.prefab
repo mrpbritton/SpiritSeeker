@@ -419,10 +419,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovementScript: {fileID: 522275797936320067}
   playerCombatScript: {fileID: 7072645507781855916}
+  navigationArrow: {fileID: 4850093774385451716}
   sprintCooldownSeconds: 10
   sprintCurrentCDTime: 0
   damageCooldownSeconds: 5
   damageCurrentCDTime: 0
+  navigationCooldownSeconds: 5
+  navigationCurrentCDTime: 0
+  canNavigate: 0
 --- !u!114 &5185489255138749047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1374,7 +1378,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3819069888822068592}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6133375d4141fc441b71af228d658954, type: 3}
   m_Name: 

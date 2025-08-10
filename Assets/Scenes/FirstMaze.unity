@@ -4266,6 +4266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xValue: 390
   zValue: 170
+  tileSize: 10
   powerUps:
   - {fileID: 8250955593574946309, guid: 0794d936d9833a245a8dbe35d3b0ac84, type: 3}
   - {fileID: 5224442709848622204, guid: 50a58e52a2c6d984a9acfb38f6ed0451, type: 3}
