@@ -5,9 +5,9 @@ using UnityEngine.UIElements;
 
 public class MMButtons : MonoBehaviour
 {
-    public string GameScene;
-
-    private UIDocument mainMenu;
+    [SerializeField] private Generic_ScreenActivate nextScreen;
+    [SerializeField] private UIDocument mainMenu;
+    
     private Button startButton;
     private Button exitButton;
 
@@ -15,28 +15,23 @@ public class MMButtons : MonoBehaviour
     {
         Time.timeScale = 0;
 
-        mainMenu = GetComponent<UIDocument>();
-
         startButton = mainMenu.rootVisualElement.Q("StartButton") as Button;
         exitButton = mainMenu.rootVisualElement.Q("ExitButton") as Button;
 
-        startButton.RegisterCallback<NavigationSubmitEvent>(StartGameController);
+        startButton.RegisterCallback<NavigationSubmitEvent>(GoToLevelSettings);
         exitButton.RegisterCallback<NavigationSubmitEvent>(ExitGameController);
     }
 
     private void OnDisable()
     {
-        startButton.UnregisterCallback<NavigationSubmitEvent>(StartGameController);
+        startButton.UnregisterCallback<NavigationSubmitEvent>(GoToLevelSettings);
         exitButton.UnregisterCallback<NavigationSubmitEvent>(ExitGameController);
     }
 
-    private void StartGameController(NavigationSubmitEvent evt)
+    private void GoToLevelSettings(NavigationSubmitEvent evt)
     {
-        if (Time.timeScale == 0)
-        {
-            Time.timeScale = 1;
-        }
-        SceneManager.LoadScene(GameScene);
+        nextScreen.ActivateScreen();
+        mainMenu.rootVisualElement.style.display = DisplayStyle.None;
     }
 
     private void ExitGameController(NavigationSubmitEvent evt)

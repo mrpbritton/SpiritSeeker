@@ -1,0 +1,11 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/MMStyle.uss?fileID=7433441132597879392&amp;guid=62441150125497c48a5c63383a46afae&amp;type=3#MMStyle" />
+    <engine:VisualElement name="Container" style="flex-grow: 1; background-color: rgb(0, 0, 0);">
+        <engine:Label text="choose your mode" name="Text" style="-unity-text-align: upper-center; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/GothicBlastDemo-xRRLR.ttf?fileID=12800000&amp;guid=e809aa247bc7dcd43aa823516a7219f5&amp;type=3#GothicBlastDemo-xRRLR&quot;); font-size: 128px; color: rgb(255, 255, 255);" />
+        <engine:Button text="Tutorial" name="Tutorial" class="button" style="margin-top: 70px; font-size: 60px;" />
+        <engine:Button text="Story Mode" name="Story" class="button" style="margin-top: 70px; font-size: 60px;" />
+        <engine:Button text="Endless Mode" name="Endless" parse-escape-sequences="false" class="button" style="margin-top: 70px; font-size: 60px;" />
+        <engine:Label text="This feature is not yet implemented." name="ErrorMessage" style="-unity-text-align: upper-center; color: rgb(255, 0, 0); font-size: 36px; margin-top: 10px; -unity-font-style: bold;" />
+        <engine:Button text="Back" name="Back" class="button" style="margin-top: 0; align-items: stretch; justify-content: flex-start; align-self: flex-start; width: 10%; height: 10%; font-size: 36px;" />
+    </engine:VisualElement>
+</engine:UXML>

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyMelee : MonoBehaviour
 {
+    [SerializeField] private int contactDamage = -5;
     public Transform target;
     public float inRange = 3;
     public float animationLength = 1;
@@ -37,6 +38,23 @@ public class EnemyMelee : MonoBehaviour
             StopCoroutine(nameof(Attacking));
             animator.Play("EnemySwordIdle");
             isInRange = false;
+        }
+    }
+
+    // Damage player on contact
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<HPController>().UpdateHealth(contactDamage);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<HPController>().UpdateHealth(contactDamage);
         }
     }
 

@@ -22,6 +22,12 @@ public class MazeGenerator : MonoBehaviour
 
     private void Start()
     {
+        depth = GetSize();
+        width = GetSize();
+
+        numberOfClearings = depth / 50;
+        clearingSize = depth / 20;
+
         cellGrid = new MazeCell[width / tileSize, depth / tileSize];
 
         for (int z = 0; z < width / tileSize; z++)
@@ -204,7 +210,7 @@ public class MazeGenerator : MonoBehaviour
 
         if (useWidthForObjective)
         {
-            for (int z = adjustedWidth / 2; z < adjustedWidth; z++)
+            for (int z = adjustedWidth / 3; z < adjustedWidth; z++)
             {
                 for (int x = 1; x < adjustedDepth; x++)
                 {
@@ -220,7 +226,7 @@ public class MazeGenerator : MonoBehaviour
         {
             for (int z = 1; z < adjustedWidth; z++)
             {
-                for (int x = adjustedDepth / 2; x < adjustedDepth; x++)
+                for (int x = adjustedDepth / 3; x < adjustedDepth; x++)
                 {
                     // Exclude border cells
                     if (z > 0 && z < adjustedWidth && x > 0 && x < adjustedDepth)
@@ -297,6 +303,40 @@ public class MazeGenerator : MonoBehaviour
                 Destroy(cellGrid[z, x].gameObject);
                 cellGrid[z, x] = null;
             }
+        }
+    }
+
+    /* private int GetSize()
+    {
+        if(LevelSettingsData.instance == null)
+        {
+            return 200;
+        }
+        switch (LevelSettingsData.instance.MazeSize)
+        {
+            case 1:
+                return 200;
+            case 2:
+                return 300;
+            case 3:
+                return 400;
+            default:
+                return 200;
+        }
+    } */
+
+    private int GetSize()
+    {
+        switch (DataManager.mazeSize)
+        {
+            case 1:
+                return 200;
+            case 2:
+                return 300;
+            case 3:
+                return 400;
+            default:
+                return 200;
         }
     }
 }

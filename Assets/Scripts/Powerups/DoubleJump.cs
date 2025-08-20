@@ -3,12 +3,6 @@ using UnityEngine.Events;
 
 public class DoubleJump : MonoBehaviour
 {
-    private EyeTracking eyeTracking;
-
-    private void OnEnable()
-    {
-        eyeTracking = GetComponentInChildren<EyeTracking>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,8 +12,7 @@ public class DoubleJump : MonoBehaviour
             {
                 player.doubleJumpNowActive();
                 PowerUpController HUD = other.GetComponentInChildren<PowerUpController>();
-                HUD.haveDoubleJump();
-                eyeTracking.enabled = false;
+                HUD.acquiredDoubleJump();
                 this.gameObject.SetActive(false);
             }
         }

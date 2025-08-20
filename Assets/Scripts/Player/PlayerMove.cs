@@ -3,6 +3,7 @@ using System.Linq.Expressions;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Timeline;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -16,8 +17,13 @@ public class PlayerMove : MonoBehaviour
     public Transform modelTransform;
     public Controls controls;
     public CharacterController playerCC;
+
+    // Power Up Flags
     public bool canDoubleJump = false;
     public bool canSprint = false;
+    public bool isSprinting = false;
+
+
     public bool knockbackApplied = false;
     public int doubleJumpStacks = 0;
 
@@ -70,11 +76,12 @@ public class PlayerMove : MonoBehaviour
         //Sprint
         if (controls.Player.Sprint.IsPressed() && canSprint)
         {
-            powerUpController.beginSprint();
+            isSprinting = true;
             currentMoveSpeed = defaultMovementSpeed * 2f;
         }
         else
         {
+            isSprinting = false;
             currentMoveSpeed = defaultMovementSpeed;
         }
 
@@ -141,7 +148,7 @@ public class PlayerMove : MonoBehaviour
 
         // Gravity application
         downForce.y += gravity * Time.deltaTime;
-        playerCC.Move(downForce * Time.deltaTime);
+        playerCC.Move(downForce * Time.deltaTime);        
     }
 
     private void FixedUpdate()
@@ -197,6 +204,8 @@ public class PlayerMove : MonoBehaviour
     public void sprintNowActive()
     {
         canSprint = true;
+        powerUpController.haveSprint();
+        powerUpController.beginSprint();
     }
 
     public IEnumerator AttackCD()

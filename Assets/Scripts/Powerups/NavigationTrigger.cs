@@ -2,13 +2,6 @@ using UnityEngine;
 
 public class NavigationTrigger : MonoBehaviour
 {
-    private EyeTracking eyeTracking;
-
-    private void OnEnable()
-    {
-        eyeTracking = GetComponentInChildren<EyeTracking>();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -30,7 +23,6 @@ public class NavigationTrigger : MonoBehaviour
 
     private void DeactivateSelf()
     {
-        eyeTracking.enabled = false;
         this.gameObject.SetActive(false);
     }
 }

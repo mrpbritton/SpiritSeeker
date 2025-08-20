@@ -8,6 +8,9 @@ TagManager:
   - HUD
   - WinScreen
   - Goal
+  - MazeCell
+  - Enemy
+  - PowerUp
   layers:
   - Default
   - TransparentFX
@@ -19,8 +22,8 @@ TagManager:
   - Player
   - EnemyAmmo
   - PowerUp
-  - 
-  - 
+  - EntityActivator
+  - Enemy
   - 
   - 
   - 

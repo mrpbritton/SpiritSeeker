@@ -3,15 +3,7 @@ using UnityEngine.Events;
 
 public class XpPowerup : MonoBehaviour
 {
-    public UnityEvent xpActivated;
     public float xpValue = 10;
-
-    private EyeTracking eyeTracking;
-
-    private void OnEnable()
-    {
-        eyeTracking = GetComponentInChildren<EyeTracking>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,7 +20,6 @@ public class XpPowerup : MonoBehaviour
 
     private void DeactivateSelf()
     {
-        eyeTracking.enabled = false;
         this.gameObject.SetActive(false);
     }
 }

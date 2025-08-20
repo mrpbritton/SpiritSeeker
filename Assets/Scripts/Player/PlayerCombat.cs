@@ -8,6 +8,8 @@ public class PlayerCombat : MonoBehaviour
     public Animator swordAnimator;
     public GameObject swordHolder;
     public PlayerSwords[] swordArray;
+
+    // For Power Ups
     public PowerUpController powerUpController;
     public float damageBuffMultiplier = 2;
     public bool buffed = false;
@@ -63,6 +65,22 @@ public class PlayerCombat : MonoBehaviour
         foreach (PlayerSwords sword in swordArray)
         {
             sword.damage = sword.damage / damageBuffMultiplier;
+        }
+    }
+
+    public void EnableMazeDestruction()
+    {
+        foreach (PlayerSwords sword in swordArray)
+        {
+            sword.canDestroyMazeCells = true;
+        }
+    }
+
+    public void DisableMazeDestruction()
+    {
+        foreach (PlayerSwords sword in swordArray)
+        {
+            sword.canDestroyMazeCells = false;
         }
     }
 

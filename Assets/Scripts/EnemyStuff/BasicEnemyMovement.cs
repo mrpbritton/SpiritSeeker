@@ -1,25 +1,89 @@
+using NUnit.Framework;
 using NUnit.Framework.Constraints;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class BasicEnemyMovement : MonoBehaviour
 {
     public Transform target;
-    public float detectionDistance = 10;
+    // public float detectionDistance = 10;
 
-    private NavMeshAgent thisEnemy;
-    private Vector3 distanceToPlayer;
-    private float distanceCondensed;
-    private Vector3 lookDirection;
-    private bool isLookingManually = false;
+    [SerializeField] private NavMeshAgent thisEnemy;
+    [SerializeField] private List<MeshRenderer> enemyMeshes;
+    [SerializeField] private GameObject weapon;
+    [SerializeField] private EnemyMelee enemyMelee;
+    [SerializeField] private EnemyAim enemyAim;
 
-    private void Awake()
+    // private Vector3 distanceToPlayer;
+    // private float distanceCondensed;
+    // private Vector3 lookDirection;
+    // private bool isLookingManually = false;
+
+    public void Activate()
     {
-        thisEnemy = GetComponent<NavMeshAgent>();
+        thisEnemy.enabled = true;
+        foreach (MeshRenderer enemyMesh in enemyMeshes)
+        {
+            enemyMesh.enabled = true;
+        }
+        weapon.SetActive(true);
+        if (enemyMelee != null)
+        {
+            enemyMelee.enabled = true;
+        }
+        else if (enemyAim != null)
+        {
+            enemyAim.enabled = true;
+        }
+        StartCoroutine(MoveTowardsPlayer());
+        StartCoroutine(LookingAtPlayer());
     }
 
-    private void OnEnable()
+    public void Deactivate()
+    {
+        thisEnemy.enabled = false;
+        foreach (MeshRenderer enemyMesh in enemyMeshes)
+        {
+            enemyMesh.enabled = false;
+        }
+        weapon.SetActive(false);
+        if (enemyMelee != null)
+        {
+            enemyMelee.enabled = false;
+        }
+        else if (enemyAim != null)
+        {
+            enemyAim.enabled = false;
+        }
+        StopAllCoroutines();
+    }
+
+    private IEnumerator MoveTowardsPlayer()
+    {
+        while (true)
+        {
+            thisEnemy.destination = target.position;
+
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    IEnumerator LookingAtPlayer()
+    {
+        while (true)
+        {
+            Vector3 lookDirection = target.position - transform.position;
+            lookDirection.y += 1;
+            transform.rotation = Quaternion.LookRotation(lookDirection);
+
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    // --- Old Version --- 
+    /* private void OnEnable()
     {
         target = GameObject.FindWithTag("Player").transform;
     }
@@ -67,5 +131,5 @@ public class BasicEnemyMovement : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
-    }
+    } */
 }

@@ -3,31 +3,21 @@ using UnityEngine.Events;
 
 public class Sprint : MonoBehaviour
 {
-    public UnityEvent sprintActivated;
-
-    private EyeTracking eyeTracking;
-
-    private void OnEnable()
-    {
-        eyeTracking = GetComponentInChildren<EyeTracking>();  
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 7)
         {
             if (other.TryGetComponent<PlayerMove>(out PlayerMove player))
             {
-                if (player.canSprint == false)
+                if (player.canSprint == true)
                 {
-                    player.sprintNowActive(); 
-                    PowerUpController HUD = other.GetComponentInChildren<PowerUpController>();
-                    HUD.haveSprint();
+                    Debug.Log("Sprint powerup already active, adding cooldown time.");
+                    player.powerUpController.sprintCurrentCDTime += player.powerUpController.sprintCooldownSeconds;
                     DeactivateSelf();
                 }
-                if(player.canSprint == true)
+                if (player.canSprint == false)
                 {
-                    player.powerUpController.sprintCurrentCDTime += player.powerUpController.sprintCooldownSeconds;
+                    player.sprintNowActive();
                     DeactivateSelf();
                 }
             }
@@ -36,7 +26,6 @@ public class Sprint : MonoBehaviour
 
     private void DeactivateSelf()
     {
-        eyeTracking.enabled = false;
         this.gameObject.SetActive(false);
     }
 }

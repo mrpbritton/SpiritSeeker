@@ -24,7 +24,7 @@
     transition-duration: 0.35s;
 }
 
-.button:hover {
+.button:focus {
     background-color: rgb(142, 142, 142);
     border-left-color: rgb(72, 72, 72);
     border-right-color: rgb(72, 72, 72);
@@ -33,7 +33,21 @@
     scale: 1.1 1.1;
 }
 
-.button:focus {
+.toggleButton {
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/GothicBlastDemo-xRRLR.ttf?fileID=12800000&guid=e809aa247bc7dcd43aa823516a7219f5&type=3#GothicBlastDemo-xRRLR");
+    color: rgb(255, 255, 255);
+    -unity-text-outline-color: rgb(255, 255, 255);
+    background-color: rgb(154, 154, 154);
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+    align-items: stretch;
+    align-self: center;
+    align-content: flex-start;
+}
+
+.button:hover {
     background-color: rgb(142, 142, 142);
     border-left-color: rgb(72, 72, 72);
     border-right-color: rgb(72, 72, 72);

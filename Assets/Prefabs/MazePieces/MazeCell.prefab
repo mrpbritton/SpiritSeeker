@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 663689853625807121}
   m_Layer: 0
   m_Name: Visual
-  m_TagString: Untagged
+  m_TagString: MazeCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 7730765365534558426}
   m_Layer: 6
   m_Name: SolidFill
-  m_TagString: Untagged
+  m_TagString: MazeCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 9110085419670262274}
   m_Layer: 0
   m_Name: Visual
-  m_TagString: Untagged
+  m_TagString: MazeCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -740,9 +740,10 @@ GameObject:
   - component: {fileID: 9043881525860195938}
   - component: {fileID: 6593831540568871591}
   - component: {fileID: 8587776991434549646}
+  - component: {fileID: 7793013653078377598}
   m_Layer: 6
   m_Name: WestWall
-  m_TagString: Untagged
+  m_TagString: MazeCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -800,6 +801,33 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 10, z: 0}
   m_TimeToStationary: 0.5
+--- !u!54 &7793013653078377598
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036916420803927568}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1748090789474372307
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +843,7 @@ GameObject:
   - component: {fileID: 3991935729720034100}
   m_Layer: 0
   m_Name: Visual
-  m_TagString: Untagged
+  m_TagString: MazeCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1144,7 +1172,7 @@ GameObject:
   - component: {fileID: 8538233267135744755}
   m_Layer: 0
   m_Name: Visual
-  m_TagString: Untagged
+  m_TagString: MazeCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1469,9 +1497,10 @@ GameObject:
   - component: {fileID: 4455309674497033169}
   - component: {fileID: 4680766300846820273}
   - component: {fileID: 7587921986886906227}
+  - component: {fileID: 8792194908538798053}
   m_Layer: 6
   m_Name: Corner2
-  m_TagString: Untagged
+  m_TagString: MazeCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1529,6 +1558,33 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 10, z: 0}
   m_TimeToStationary: 0.5
+--- !u!54 &8792194908538798053
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3686334296413791429}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3871987488957742892
 GameObject:
   m_ObjectHideFlags: 0
@@ -1544,7 +1600,7 @@ GameObject:
   - component: {fileID: 2788558511824624828}
   m_Layer: 0
   m_Name: Visual
-  m_TagString: Untagged
+  m_TagString: MazeCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1873,7 +1929,7 @@ GameObject:
   - component: {fileID: 7226812259161793352}
   m_Layer: 0
   m_Name: Visual
-  m_TagString: Untagged
+  m_TagString: MazeCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2202,7 +2258,7 @@ GameObject:
   - component: {fileID: 4279939333026040911}
   m_Layer: 0
   m_Name: Visual
-  m_TagString: Untagged
+  m_TagString: MazeCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2527,9 +2583,10 @@ GameObject:
   - component: {fileID: 1589235053227745629}
   - component: {fileID: 8050555760530966710}
   - component: {fileID: 4178495011050770049}
+  - component: {fileID: 3859184687504034713}
   m_Layer: 6
   m_Name: SouthWall
-  m_TagString: Untagged
+  m_TagString: MazeCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2587,6 +2644,33 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 10, z: 0}
   m_TimeToStationary: 0.5
+--- !u!54 &3859184687504034713
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4292217249986683102}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4542427132346400485
 GameObject:
   m_ObjectHideFlags: 0
@@ -2598,9 +2682,10 @@ GameObject:
   - component: {fileID: 2551712192691423466}
   - component: {fileID: 5626681485446798990}
   - component: {fileID: 3646539049056407617}
+  - component: {fileID: 8023025815370590736}
   m_Layer: 6
   m_Name: NorthWall
-  m_TagString: Untagged
+  m_TagString: MazeCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2658,6 +2743,33 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 10, z: 0}
   m_TimeToStationary: 0.5
+--- !u!54 &8023025815370590736
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542427132346400485}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5033016875579605724
 GameObject:
   m_ObjectHideFlags: 0
@@ -2673,7 +2785,7 @@ GameObject:
   - component: {fileID: 466699778478889660}
   m_Layer: 0
   m_Name: Visual
-  m_TagString: Untagged
+  m_TagString: MazeCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2998,9 +3110,10 @@ GameObject:
   - component: {fileID: 6451928845028525111}
   - component: {fileID: 4947317984462734349}
   - component: {fileID: 7380412624501431735}
+  - component: {fileID: 5129294316253583808}
   m_Layer: 6
   m_Name: Corner1
-  m_TagString: Untagged
+  m_TagString: MazeCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3058,6 +3171,33 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 10, z: 0}
   m_TimeToStationary: 0.5
+--- !u!54 &5129294316253583808
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5177432674451547154}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5450929548603523292
 GameObject:
   m_ObjectHideFlags: 0
@@ -3069,9 +3209,10 @@ GameObject:
   - component: {fileID: 412774385439833059}
   - component: {fileID: 4574450747438065380}
   - component: {fileID: 3917494166433990057}
+  - component: {fileID: 2251086129566747478}
   m_Layer: 6
   m_Name: Corner3
-  m_TagString: Untagged
+  m_TagString: MazeCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3129,6 +3270,33 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 10, z: 0}
   m_TimeToStationary: 0.5
+--- !u!54 &2251086129566747478
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5450929548603523292}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5933520079818048160
 GameObject:
   m_ObjectHideFlags: 0
@@ -3140,9 +3308,10 @@ GameObject:
   - component: {fileID: 1350524566653948820}
   - component: {fileID: 962294766034428980}
   - component: {fileID: 4830393146277752642}
+  - component: {fileID: 3227086775691556088}
   m_Layer: 6
   m_Name: Corner4
-  m_TagString: Untagged
+  m_TagString: MazeCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3200,6 +3369,33 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 10, z: 0}
   m_TimeToStationary: 0.5
+--- !u!54 &3227086775691556088
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5933520079818048160}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5993658439771307693
 GameObject:
   m_ObjectHideFlags: 0
@@ -3212,7 +3408,7 @@ GameObject:
   - component: {fileID: 1830845357423874032}
   m_Layer: 6
   m_Name: MazeCell
-  m_TagString: Untagged
+  m_TagString: MazeCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3273,7 +3469,7 @@ GameObject:
   - component: {fileID: 5016008692984987680}
   m_Layer: 0
   m_Name: Visual
-  m_TagString: Untagged
+  m_TagString: MazeCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3598,9 +3794,10 @@ GameObject:
   - component: {fileID: 4947368306145099841}
   - component: {fileID: 6740453099919001947}
   - component: {fileID: 523125980113901567}
+  - component: {fileID: 1644126173296973739}
   m_Layer: 6
   m_Name: EastWall
-  m_TagString: Untagged
+  m_TagString: MazeCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3658,3 +3855,30 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 10, z: 0}
   m_TimeToStationary: 0.5
+--- !u!54 &1644126173296973739
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6684371923023643767}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

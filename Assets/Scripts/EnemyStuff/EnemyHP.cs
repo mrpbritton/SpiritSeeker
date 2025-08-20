@@ -12,7 +12,7 @@ public class EnemyHP : MonoBehaviour
 
     public UnityEvent EnemyDeath;
 
-    private Renderer mRenderer;
+    [SerializeField] private Renderer mRenderer;
     private float currentHP;
     private bool canTakeDamage = true;
     private float damageCD = 0.25f;
@@ -20,7 +20,6 @@ public class EnemyHP : MonoBehaviour
     private void OnEnable()
     {
         currentHP = maxHP;
-        mRenderer = GetComponent<Renderer>();
     }
 
     public void UpdateHealth(float amount)

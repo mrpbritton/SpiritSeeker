@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyAim : MonoBehaviour
 {
+    [SerializeField] private int contactDamage = -5;
     public Transform boltSpawnPoint;
     public float fireRate = 1;
     public float boltSpeed = 5;
@@ -32,7 +33,7 @@ public class EnemyAim : MonoBehaviour
         for (int i = 0; i < boltsHeld; i++)
         {
             // A bolt gets instantiated and added to the list of bolts
-            bolts.Add(Instantiate(boltPrefab).GetComponent<Bolt>());
+            bolts.Add(Instantiate(boltPrefab, transform).GetComponent<Bolt>());
         }
 
         // Disable them to start
@@ -60,6 +61,23 @@ public class EnemyAim : MonoBehaviour
     public void StopAiming()
     {
         StopAllCoroutines();
+    }
+
+    // Damage player on contact
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<HPController>().UpdateHealth(contactDamage);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<HPController>().UpdateHealth(contactDamage);
+        }
     }
 
     IEnumerator Aiming()

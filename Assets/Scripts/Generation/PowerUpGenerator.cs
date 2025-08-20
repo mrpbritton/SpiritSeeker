@@ -13,6 +13,9 @@ public class PowerUpGenerator : MonoBehaviour
 
     private void OnEnable()
     {
+        xValue = GetSize();
+        zValue = GetSize();
+
         xTiles = xValue / tileSize;
         zTiles = zValue / tileSize;
 
@@ -23,6 +26,41 @@ public class PowerUpGenerator : MonoBehaviour
                 int random = Random.Range(0, powerUps.Length);                
                 Instantiate(powerUps[random], new Vector3(transform.position.x + (i * tileSize), 1, transform.position.z + (j * tileSize)), transform.rotation, this.gameObject.transform);
             }
+        }
+    }
+
+
+    /* private int GetSize()
+    {
+        if(LevelSettingsData.instance == null)
+        {
+            return 200;
+        }
+        switch (LevelSettingsData.instance.MazeSize)
+        {
+            case 1:
+                return 200;
+            case 2:
+                return 300;
+            case 3:
+                return 400;
+            default:
+                return 200;
+        }
+    } */
+
+    private int GetSize()
+    {
+        switch (DataManager.mazeSize)
+        {
+            case 1:
+                return 200;
+            case 2:
+                return 300;
+            case 3:
+                return 400;
+            default:
+                return 200;
         }
     }
 }
