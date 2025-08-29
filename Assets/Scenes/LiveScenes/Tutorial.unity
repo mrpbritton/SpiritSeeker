@@ -5568,6 +5568,85 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8126196191155995937, guid: 6fe863aba42ba4d48a8bf3b5b5445f21, type: 3}
   m_PrefabInstance: {fileID: 752477910}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &793608585
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3100650610324175571, guid: 50a58e52a2c6d984a9acfb38f6ed0451, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100650610324175571, guid: 50a58e52a2c6d984a9acfb38f6ed0451, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100650610324175571, guid: 50a58e52a2c6d984a9acfb38f6ed0451, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100650610324175571, guid: 50a58e52a2c6d984a9acfb38f6ed0451, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100650610324175571, guid: 50a58e52a2c6d984a9acfb38f6ed0451, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100650610324175571, guid: 50a58e52a2c6d984a9acfb38f6ed0451, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100650610324175571, guid: 50a58e52a2c6d984a9acfb38f6ed0451, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100650610324175571, guid: 50a58e52a2c6d984a9acfb38f6ed0451, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100650610324175571, guid: 50a58e52a2c6d984a9acfb38f6ed0451, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100650610324175571, guid: 50a58e52a2c6d984a9acfb38f6ed0451, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5224442709848622204, guid: 50a58e52a2c6d984a9acfb38f6ed0451, type: 3}
+      propertyPath: m_Name
+      value: DoubleJump
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5224442709848622204, guid: 50a58e52a2c6d984a9acfb38f6ed0451, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 793608587}
+  m_SourcePrefab: {fileID: 100100000, guid: 50a58e52a2c6d984a9acfb38f6ed0451, type: 3}
+--- !u!1 &793608586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5224442709848622204, guid: 50a58e52a2c6d984a9acfb38f6ed0451, type: 3}
+  m_PrefabInstance: {fileID: 793608585}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &793608587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793608586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a4cfe8afb4bdb4da176c053da1f496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialTrigger
+  hasFlavorText: 0
+  deactivateOnTrigger: 1
 --- !u!43 &819639121
 Mesh:
   m_ObjectHideFlags: 0
@@ -8340,6 +8419,8 @@ MonoBehaviour:
   - Great! Now move towards that orange spirit and walk right through it.
   - This spirit gives you the power to sprint. Press [Left Shift] while moving to
     sprint!
+  - This spirit gives you the power to double jump. Press [Spacebar] to jump and
+    then again to double jump!
 --- !u!1 &1163329070
 GameObject:
   m_ObjectHideFlags: 1
@@ -14651,3 +14732,4 @@ SceneRoots:
   - {fileID: 1170657486}
   - {fileID: 1051028144}
   - {fileID: 146235453}
+  - {fileID: 793608585}

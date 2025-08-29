@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: FmodProjectSpiritSeeker/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638918965660000000
+  lastModified: 638919410505495545
   FileSizes:
   - Name: Desktop
     Value: 1074
@@ -35,7 +35,7 @@ MonoBehaviour:
   Path: FmodProjectSpiritSeeker/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638918965660000000
+  lastModified: 638919410505495545
   FileSizes:
   - Name: Desktop
     Value: 724
@@ -62,5 +62,5 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -2915806161424390307}
   cacheVersion: 131848
-  cacheTime: 638918965660000000
+  cacheTime: 638919410505495545
   SerializableEventsDict: []
