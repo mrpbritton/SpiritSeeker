@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6906259532968815175}
   - component: {fileID: 7204031595826807180}
   - component: {fileID: 3727770686099085146}
+  - component: {fileID: 1824261601457173855}
   - component: {fileID: 4167584039544051607}
   - component: {fileID: 3300146529287337870}
   - component: {fileID: 438111896851661580}
@@ -81,6 +82,18 @@ MonoBehaviour:
   EnemyDeath:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1824261601457173855}
+        m_TargetAssemblyTypeName: EnemyScoreUpdate, Assembly-CSharp
+        m_MethodName: AddScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 3727770686099085146}
         m_TargetAssemblyTypeName: EnemyHP, Assembly-CSharp
         m_MethodName: Die
@@ -94,6 +107,19 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   mRenderer: {fileID: 1299333406181746701}
+--- !u!114 &1824261601457173855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133845959955998972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26cdc2ec3e194db4597ac9581f606060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyScoreUpdate
+  scoreValue: 15
 --- !u!114 &4167584039544051607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198b6dc7f3f66af408d843cd28cc58e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  contactDamage: -5
   target: {fileID: 0}
   inRange: 3
   animationLength: 1
@@ -162,10 +189,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133845959955998972}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -210,6 +237,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -231,6 +260,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -296,6 +326,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -317,6 +349,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
