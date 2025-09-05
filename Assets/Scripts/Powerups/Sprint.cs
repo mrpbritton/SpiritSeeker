@@ -1,8 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Sprint : MonoBehaviour
 {
+    [SerializeField] private bool mustReactivate = false;
+    [SerializeField] private float reactivationCooldownSeconds = 3f;
+
+    [SerializeField] private SphereCollider sphereCollider;
+    [SerializeField] private ActivatePowerUp powerUpBehavior;
+    [SerializeField] private List<MeshRenderer> renderers;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 7)
@@ -11,21 +20,56 @@ public class Sprint : MonoBehaviour
             {
                 if (player.canSprint == true)
                 {
-                    Debug.Log("Sprint powerup already active, adding cooldown time.");
                     player.powerUpController.sprintCurrentCDTime += player.powerUpController.sprintCooldownSeconds;
-                    DeactivateSelf();
+                    Deactivate();
+                    if (mustReactivate)
+                    {
+                        StartCoroutine(nameof(ReactivationCooldown));
+                    }
                 }
                 if (player.canSprint == false)
                 {
                     player.sprintNowActive();
-                    DeactivateSelf();
+                    Deactivate(); 
+                    if (mustReactivate)
+                    {
+                        StartCoroutine(nameof(ReactivationCooldown));
+                    }
                 }
             }
         }
     }
 
-    private void DeactivateSelf()
+    private void Deactivate()
     {
-        this.gameObject.SetActive(false);
+        sphereCollider.enabled = false;
+        powerUpBehavior.enabled = false;
+        foreach (MeshRenderer renderer in renderers)
+        {
+            if (renderer.enabled)
+            {
+                renderer.enabled = false;
+            }
+        }
+    }
+
+    private void Reactivate()
+    {
+        sphereCollider.enabled = true;
+        powerUpBehavior.enabled = true;
+        foreach (MeshRenderer renderer in renderers)
+        {
+            if (renderer.enabled)
+            {
+                renderer.enabled = true;
+            }
+        }
+    }
+
+    private IEnumerator ReactivationCooldown()
+    {
+        yield return new WaitForSeconds(reactivationCooldownSeconds);
+        Reactivate();
+        StopAllCoroutines();
     }
 }
