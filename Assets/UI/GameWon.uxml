@@ -1,8 +1,11 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/PauseStyle.uss?fileID=7433441132597879392&amp;guid=23c19f1505252704c9a0375ae080f10d&amp;type=3#PauseStyle" />
+    <Style src="project://database/Assets/UI/StyleSheets/PauseStyle.uss?fileID=7433441132597879392&amp;guid=23c19f1505252704c9a0375ae080f10d&amp;type=3#PauseStyle" />
     <engine:VisualElement name="GameOverContainer" style="flex-grow: 1; background-color: rgba(0, 83, 56, 0.69);">
         <engine:Label text="You Won" name="Title" class="header" />
-        <engine:Button text="Restart" name="Restart" class="button" />
+        <engine:Label text="Time:" name="Time" class="header" style="font-size: 70px; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Gothic%20Blast.ttf?fileID=12800000&amp;guid=5b47c71a9e9a1cb478fc6fba50d8e665&amp;type=3#Gothic Blast&quot;);" />
+        <engine:Label text="Levels Cleared:" name="Levels" class="header" style="font-size: 70px; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Gothic%20Blast.ttf?fileID=12800000&amp;guid=5b47c71a9e9a1cb478fc6fba50d8e665&amp;type=3#Gothic Blast&quot;);" />
+        <engine:Label text="Score:" name="Score" class="header" style="font-size: 70px; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Gothic%20Blast.ttf?fileID=12800000&amp;guid=5b47c71a9e9a1cb478fc6fba50d8e665&amp;type=3#Gothic Blast&quot;);" />
+        <engine:Button text="Continue" name="Continue" class="button" />
         <engine:Button text="Main menu" name="MainMenu" parse-escape-sequences="true" class="button" />
     </engine:VisualElement>
 </engine:UXML>

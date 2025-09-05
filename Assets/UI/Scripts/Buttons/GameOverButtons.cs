@@ -10,6 +10,9 @@ public class GameOverButtons : MonoBehaviour
     private VisualElement gameOverDisplay;
     private Button restartButton;
     private Button mainMenuButton;
+    private Label score;
+    private Label levelsCleared;
+
 
     private void OnEnable()
     {
@@ -20,6 +23,8 @@ public class GameOverButtons : MonoBehaviour
 
         restartButton = gameOverDocument.rootVisualElement.Q("Restart") as Button;
         mainMenuButton = gameOverDocument.rootVisualElement.Q("MainMenu") as Button;
+        score = gameOverDocument.rootVisualElement.Q<Label>("Score");
+        levelsCleared = gameOverDocument.rootVisualElement.Q<Label>("Levels");
 
         restartButton.RegisterCallback<NavigationSubmitEvent>(RestartGame);
         mainMenuButton.RegisterCallback<NavigationSubmitEvent>(LoadMainMenu);
@@ -37,10 +42,15 @@ public class GameOverButtons : MonoBehaviour
 
         UnityEngine.Cursor.lockState = CursorLockMode.None;
         UnityEngine.Cursor.visible = true;
+
+        // Update UI
+        levelsCleared.text = "Levels Cleared: " + ScoreFactors.levelsCleared;
+        score.text = "Score: " + ScoreFactors.playerScore;
     }
 
     private void RestartGame(NavigationSubmitEvent evt)
     {
+        ScoreFactors.Reset();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1.0f;
 

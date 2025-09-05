@@ -4246,6 +4246,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5975840327683242531, guid: a3967ff6073f07646a62b98084e4407a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1928238894}
+    - targetCorrespondingSourceObject: {fileID: 5975840327683242531, guid: a3967ff6073f07646a62b98084e4407a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1928238899}
   m_SourcePrefab: {fileID: 100100000, guid: a3967ff6073f07646a62b98084e4407a, type: 3}
 --- !u!114 &1765662254 stripped
 MonoBehaviour:
@@ -4671,6 +4674,20 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1928238899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798572580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c24d1921ec27a47a034724de034b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimerUpdater
+  playerHUD: {fileID: 1928238897}
+  timerLabelName: Timer
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

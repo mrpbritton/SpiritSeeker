@@ -60,6 +60,9 @@ public class LevelSettingsButtons : MonoBehaviour
             "Countless" => 3,
             _ => 1 // Default
         };
+
+        ScoreFactors.Reset();
+
         SceneManager.LoadScene(levelName);
     }
 

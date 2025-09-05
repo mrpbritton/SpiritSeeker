@@ -15,6 +15,6 @@ public class ScoreUpdater : MonoBehaviour
 
     void Update()
     {
-        scoreLabel.text = "Score: " + DataManager.playerScore.ToString();
+        scoreLabel.text = "Score: " + ScoreFactors.playerScore.ToString();
     }
 }

@@ -5,11 +5,15 @@ using UnityEngine.UIElements;
 public class YouWinButtons : MonoBehaviour
 {
     public string MainMenuScene;
+    [SerializeField] private float parTimeInSeconds = 600;
 
     private UIDocument youWinDocument;
     private VisualElement youWinDisplay;
-    private Button restartButton;
+    private Button continueButton;
     private Button mainMenuButton;
+    private Label score;
+    private Label time;
+    private Label levelsCleared;
 
     private void OnEnable()
     {
@@ -18,10 +22,13 @@ public class YouWinButtons : MonoBehaviour
 
         youWinDisplay.style.display = DisplayStyle.None;
 
-        restartButton = youWinDocument.rootVisualElement.Q("Restart") as Button;
+        continueButton = youWinDocument.rootVisualElement.Q("Continue") as Button;
         mainMenuButton = youWinDocument.rootVisualElement.Q("MainMenu") as Button;
+        score = youWinDocument.rootVisualElement.Q<Label>("Score");
+        time = youWinDocument.rootVisualElement.Q<Label>("Time");   
+        levelsCleared = youWinDocument.rootVisualElement.Q<Label>("Levels");
 
-        restartButton.clicked += () => { RestartGame(); };
+        continueButton.clicked += () => { RestartGame(); };
         mainMenuButton.clicked += () => { LoadMainMenu(); };
     }
 
@@ -31,6 +38,21 @@ public class YouWinButtons : MonoBehaviour
 
         UnityEngine.Cursor.lockState = CursorLockMode.None;
         UnityEngine.Cursor.visible = true;
+
+        // Score Calculations
+        ScoreFactors.levelsCleared += 1;
+        ScoreFactors.playerScore = ScoreFactors.levelsCleared * ScoreFactors.playerScore;
+
+        // Time Bonus
+        if (ScoreFactors.currentTime < parTimeInSeconds)
+        {
+            ScoreFactors.playerScore += Mathf.RoundToInt((parTimeInSeconds - ScoreFactors.currentTime) * 1000);
+        }
+
+        // Update UI
+        time.text = "Time: " + ScoreFactors.currentTime.ToString("F2");
+        levelsCleared.text = "Levels Cleared: " + ScoreFactors.levelsCleared;
+        score.text = "Score: " + ScoreFactors.playerScore;
     }
 
     private void RestartGame()

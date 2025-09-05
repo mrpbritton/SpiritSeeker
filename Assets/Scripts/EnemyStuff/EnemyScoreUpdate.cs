@@ -6,6 +6,6 @@ public class EnemyScoreUpdate : MonoBehaviour
 
     public void AddScore()
     {
-        DataManager.playerScore += scoreValue;
+        ScoreFactors.playerScore += scoreValue;
     }
 }
